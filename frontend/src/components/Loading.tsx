@@ -19,7 +19,8 @@ export default function Loading({ message }: LoadingProps) {
         className="text-center"
       >
         <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-        <h2 className="text-2xl font-bold text-gray-800">{message || t('common.loading')}</h2>
+        <h2 className="text-2xl font-bold text-gray-800 mb-2">{message || 'Loading... ✨'}</h2>
+        <p className="text-sm text-gray-500">Just a moment, we're getting everything ready for you...</p>
       </motion.div>
     </div>
   );

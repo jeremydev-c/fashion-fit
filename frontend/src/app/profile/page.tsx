@@ -38,7 +38,7 @@ export default function Profile() {
 
   const handleSave = async () => {
     if (!token || !name.trim()) {
-      alert('Name cannot be empty');
+      alert('Hey there! 👋\n\nWe\'d love to know what to call you! Please enter your name so we can personalize your experience.');
       return;
     }
 
@@ -59,16 +59,16 @@ export default function Profile() {
       const data = await response.json();
       
       if (response.ok) {
-        alert('✅ Profile updated successfully!');
+        alert(`Perfect! ✨ Your profile has been updated!\n\nGreat to meet you, ${name.trim()}! 👋`);
         setIsEditing(false);
         // Refresh the page to show updated data
         window.location.reload();
       } else {
-        alert('Failed to update profile: ' + (data.error || 'Unknown error'));
+        alert('Oops! 😅 We couldn\'t update your profile right now.\n\n' + (data.error || 'Please try again in a moment - sometimes these things need a second attempt!'));
       }
     } catch (error: any) {
       console.error('Profile update error:', error);
-      alert('Failed to update profile: ' + error.message);
+      alert('Hmm, something went wrong while updating your profile. 🙈\n\nDon\'t worry - your changes are safe! Let\'s try that again.');
     } finally {
       setSaving(false);
     }
@@ -107,17 +107,17 @@ export default function Profile() {
       const data = await response.json();
       
       if (response.ok) {
-        alert('✅ Profile picture updated successfully!');
+        alert('Perfect! 📸 Your new profile picture looks amazing!\n\nWe\'ve updated it - refresh to see your stylish new look! ✨');
         setPreviewPicture(null);
         setSelectedFile(null);
         // Refresh the page to show updated picture
         window.location.reload();
       } else {
-        alert('Failed to upload picture: ' + (data.error || 'Unknown error'));
+        alert('Oops! 😅 We couldn\'t upload your picture right now.\n\n' + (data.error || 'Make sure the image is under 5MB and try again!'));
       }
     } catch (error: any) {
       console.error('Picture upload error:', error);
-      alert('Failed to upload picture: ' + error.message);
+      alert('Hmm, something went wrong while uploading your picture. 🙈\n\nDon\'t worry - your photo is safe! Check your internet connection and try again.');
     } finally {
       setUploadingPicture(false);
     }

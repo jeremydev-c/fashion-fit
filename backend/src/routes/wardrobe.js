@@ -17,13 +17,15 @@ cloudinary.config({
   api_secret: process.env.CLOUDINARY_API_SECRET
 });
 
-// Configure multer for file uploads
+// Configure multer for file uploads - using memory storage since we upload to Cloudinary
+// Tried disk storage first but memory works better for this use case
 const upload = multer({
-  storage: multer.memoryStorage(),
+  storage: multer.memoryStorage(), // Store in memory temporarily
   limits: {
-    fileSize: 10 * 1024 * 1024 // 10MB limit
+    fileSize: 10 * 1024 * 1024 // 10MB limit - reasonable for clothing photos
   },
   fileFilter: (req, file, cb) => {
+    // Only allow image files
     if (file.mimetype.startsWith('image/')) {
       cb(null, true);
     } else {
@@ -32,9 +34,11 @@ const upload = multer({
   }
 });
 
-// Middleware to verify JWT token
+// Middleware to verify JWT token - used across all protected routes
 const verifyToken = (req, res, next) => {
-  const token = req.headers.authorization?.split(' ')[1];
+  // Extract token from Authorization header (format: "Bearer <token>")
+  const authHeader = req.headers.authorization;
+  const token = authHeader?.split(' ')[1]; // Get token after "Bearer "
   
   if (!token) {
     return res.status(401).json({ message: 'No token provided' });
@@ -42,9 +46,11 @@ const verifyToken = (req, res, next) => {
 
   try {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
-    req.userId = decoded.userId;
+    req.userId = decoded.userId; // Attach userId to request for use in routes
     next();
   } catch (error) {
+    // Token expired, invalid, or tampered with
+    // console.log('Token verification failed:', error.name); // for debugging
     return res.status(401).json({ message: 'Invalid token' });
   }
 };

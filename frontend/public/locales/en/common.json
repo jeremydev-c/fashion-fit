@@ -19,9 +19,10 @@
   "home": {
     "title": "Fashion Fit",
     "signIn": "Sign In",
-    "subtitle": "Your Personal Fashion Assistant",
-    "description": "AI-powered outfit recommendations, wardrobe management, and style tips tailored for you.",
+    "subtitle": "A smarter, calmer way to get dressed",
+    "description": "Built to feel personal, not robotic. Discover outfits that actually fit your life, organize your wardrobe without the hassle, and get styling tips that feel like a friend’s advice.",
     "getStarted": "Get Started Free",
+    "watchDemo": "Watch a 30‑second demo",
     "cta": {
       "button": "Get Started"
     },
@@ -29,19 +30,19 @@
       "title": "Features",
       "aiWardrobe": {
         "title": "AI Wardrobe",
-        "description": "Upload your clothes and let AI analyze and organize them."
+        "description": "Snap a photo, we handle the rest. Clean organization without spreadsheets."
       },
       "smartRecommendations": {
         "title": "Smart Recommendations",
-        "description": "Personalized suggestions based on your style, weather, and occasion."
+        "description": "Outfits that match your vibe, the weather, and where you’re headed—no guesswork."
       },
       "styleAnalytics": {
         "title": "Style Analytics",
-        "description": "Learn trends and tips to elevate your style game."
+        "description": "Gentle insights that help you find what you actually wear and love."
       },
       "fashionStylist": {
         "title": "AI Fashion Stylist",
-        "description": "Get personalized styling advice from your AI fashion assistant."
+        "description": "Ask quick styling questions and get practical, friendly answers."
       }
     }
   },

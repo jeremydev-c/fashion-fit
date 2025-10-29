@@ -30,7 +30,7 @@ export default function Dashboard() {
           className="text-center"
         >
           <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-          <h2 className="text-2xl font-bold text-gray-800">Loading your Fashion Fit dashboard...</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Getting your dashboard ready... ✨</h2>
         </motion.div>
       </div>
     );
@@ -47,8 +47,8 @@ export default function Dashboard() {
             transition={{ duration: 0.5 }}
             className="text-center p-8 bg-white rounded-2xl shadow-xl"
           >
-            <h2 className="text-3xl font-bold text-red-600 mb-4">Authentication Required</h2>
-            <p className="text-lg text-gray-700 mb-6">Please sign in to access your dashboard.</p>
+            <h2 className="text-3xl font-bold text-red-600 mb-4">Hey there! 👋</h2>
+            <p className="text-lg text-gray-700 mb-6">We'd love to show you your dashboard! Please sign in so we can personalize your fashion journey.</p>
             <a
               href="/"
               className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"

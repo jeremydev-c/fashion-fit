@@ -12,13 +12,12 @@
 
 <div align="center">
 
-[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?style=for-the-badge)](https://your-demo-url.vercel.app) 
 [![GitHub Stars](https://img.shields.io/github/stars/jeremydev-c/fashion-fit?style=for-the-badge)](https://github.com/jeremydev-c/fashion-fit)
 [![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
 
 </div>
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Live Demo](#-live-demo) • [Getting Started](#-getting-started) • [Project Structure](#-project-structure) • [Documentation](#-documentation)
+[Features](#-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Project Structure](#-project-structure) • [Documentation](#-documentation)
 
 </div>
 
@@ -48,18 +47,6 @@ Fashion Fit is a full-stack web application that revolutionizes wardrobe managem
 - **Supported Languages**: 11 (i18n)
 - **AI Models**: Custom Computer Vision + GPT-4
 - **Database Models**: 3 (User, ClothingItem, Outfit)
-
----
-
-## 🌐 Live Demo
-
-> **Note**: Currently configured for local development. For live deployment:
-> - Frontend: Deploy to [Vercel](https://vercel.com) 
-> - Backend: Deploy to [Render](https://render.com) or [Railway](https://railway.app)
-> - Database: MongoDB Atlas (already cloud-hosted)
-
-📹 **[Watch Demo Video](#)** *(Coming Soon)*  
-🚀 **[Try Live Demo](https://your-demo-url.vercel.app)** *(Add your deployment URL here)*
 
 ---
 

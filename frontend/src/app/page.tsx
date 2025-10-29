@@ -75,7 +75,7 @@ export default function Home() {
         >
           <div className="flex items-center justify-center">
             <span className="mr-2">⚠️</span>
-            <span>Google OAuth temporarily unavailable. Redirecting to demo mode...</span>
+            <span>Hmm, looks like Google sign-in is taking a quick break! ☕\n\nDon't worry - we're redirecting you to demo mode so you can still explore everything Fashion Fit has to offer! 🚀</span>
           </div>
         </motion.div>
       )}
@@ -118,7 +118,7 @@ export default function Home() {
               onClick={handleWatchDemo}
               className="px-8 py-4 border-2 border-purple-600 text-purple-600 text-lg font-semibold rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300 cursor-pointer"
             >
-              {t('home.features.title')}
+              {t('home.watchDemo')}
             </button>
           </motion.div>
 

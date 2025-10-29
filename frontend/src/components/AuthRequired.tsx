@@ -19,8 +19,8 @@ export default function AuthRequired({ message }: AuthRequiredProps) {
           transition={{ duration: 0.5 }}
           className="text-center p-8 bg-white rounded-2xl shadow-xl"
         >
-          <h2 className="text-3xl font-bold text-red-600 mb-4">{t('auth.required')}</h2>
-          <p className="text-lg text-gray-700 mb-6">{message || t('auth.signInPrompt')}</p>
+          <h2 className="text-3xl font-bold text-red-600 mb-4">Hey there! 👋</h2>
+          <p className="text-lg text-gray-700 mb-6">{message || "We'd love to show you this feature! Please sign in so we can personalize your experience. 🎨"}</p>
           <a
             href="/"
             className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"

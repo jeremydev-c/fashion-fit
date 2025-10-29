@@ -33,19 +33,20 @@ export default function Recommendations() {
 
       const data = await response.json();
       if (data.success) {
-        alert(`✨ Rated ${rating} stars! AI is learning from your feedback!`);
+        alert(`Thanks for the feedback! ⭐\n\nWe've saved your ${rating}-star rating. Your AI stylist is always learning from you to make better suggestions!`);
       } else {
-        alert('Failed to rate outfit: ' + data.error);
+        alert('Oops! 😅 We couldn\'t save your rating right now.\n\n' + (data.error || 'Please try again in a moment!'));
       }
     } catch (error) {
       console.error('Rating error:', error);
-      alert('Failed to rate outfit: ' + error.message);
+      alert('Hmm, something went wrong while saving your rating. 🙈\n\nLet\'s try that again - your feedback helps us improve!');
     }
   };
 
   const provideFeedback = async (outfitId, feedback) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/recommendations/outfits/${outfitId}/feedback`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/recommendations/outfits/${outfitId}/feedback`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -56,19 +57,20 @@ export default function Recommendations() {
 
       const data = await response.json();
       if (data.success) {
-        alert(`✨ Feedback recorded! AI is learning from your preferences!`);
+        alert(`Perfect! ✨ We've saved your feedback.\n\nYour AI stylist is taking notes - the more you share, the better we get at matching your style! 🎯`);
       } else {
-        alert('Failed to record feedback: ' + data.error);
+        alert('Oops! 😅 We couldn\'t save your feedback right now.\n\n' + (data.error || 'Please try again in a moment!'));
       }
     } catch (error) {
       console.error('Feedback error:', error);
-      alert('Failed to record feedback: ' + error.message);
+      alert('Hmm, something went wrong while saving your feedback. 🙈\n\nYour opinion matters to us - let\'s try that again!');
     }
   };
 
   const trackWear = async (outfitId, occasion, weather) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/recommendations/outfits/${outfitId}/wear`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/recommendations/outfits/${outfitId}/wear`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -79,13 +81,13 @@ export default function Recommendations() {
 
       const data = await response.json();
       if (data.success) {
-        alert(`✨ Wear tracked! AI is learning from your actual usage!`);
+        alert(`Awesome! 📸 We've recorded that you wore this outfit.\n\nYour AI is learning your real-world style preferences - this helps us suggest outfits you'll actually love wearing! 💫`);
       } else {
-        alert('Failed to track wear: ' + data.error);
+        alert('Oops! 😅 We couldn\'t track that wear right now.\n\n' + (data.error || 'Please try again in a moment!'));
       }
     } catch (error) {
       console.error('Wear tracking error:', error);
-      alert('Failed to track wear: ' + error.message);
+      alert('Hmm, something went wrong while tracking your outfit wear. 🙈\n\nDon\'t worry - let\'s try that again!');
     }
   };
 
@@ -93,7 +95,8 @@ export default function Recommendations() {
   const generateRecommendations = async () => {
     setLoadingRecommendations(true);
     try {
-      const response = await fetch('http://localhost:5000/api/recommendations/outfit', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/recommendations/outfit`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -111,13 +114,14 @@ export default function Recommendations() {
           console.log(`🎯 AI learned from ${data.learnedFromFavorites} favorite outfits!`);
         }
         
-        alert(`✨ Generated ${data.recommendations.length} personalized AI recommendations!`);
+        const recCount = data.recommendations.length;
+        alert(`🎉 Amazing! We've created ${recCount} personalized outfit ${recCount === 1 ? 'recommendation' : 'recommendations'} just for you!\n\n${recCount > 0 ? 'Scroll down to see your new style possibilities! ✨' : 'Let\'s build your wardrobe first - upload some items to get started!'}`);
       } else {
-        alert('Failed to generate recommendations: ' + data.error);
+        alert('Hmm, we couldn\'t generate recommendations right now. 😅\n\n' + (data.error || 'Make sure you have some items in your wardrobe first, or try again in a moment!'));
       }
     } catch (error) {
       console.error('Recommendation generation error:', error);
-      alert('Failed to generate recommendations: ' + error.message);
+      alert('Oops! Something went wrong while creating your recommendations. 🙈\n\nDon\'t worry - this happens sometimes! Make sure your wardrobe has some items, then try again.');
     } finally {
       setLoadingRecommendations(false);
     }
@@ -125,7 +129,8 @@ export default function Recommendations() {
 
   const saveOutfit = async (outfit) => {
     try {
-      const response = await fetch('http://localhost:5000/api/recommendations/save', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/recommendations/save`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -136,13 +141,13 @@ export default function Recommendations() {
 
       const data = await response.json();
       if (data.success) {
-        alert('✨ Outfit saved to favorites!');
+        alert('Perfect! ⭐ This outfit has been saved to your favorites!\n\nYou can find it anytime in your favorites section. Great style choices, by the way! 💫');
       } else {
-        alert('Failed to save outfit: ' + data.error);
+        alert('Oops! 😅 We couldn\'t save that outfit to favorites right now.\n\n' + (data.error || 'Please try again in a moment!'));
       }
     } catch (error) {
       console.error('Save outfit error:', error);
-      alert('Failed to save outfit: ' + error.message);
+      alert('Hmm, something went wrong while saving to favorites. 🙈\n\nLet\'s try that again - we really want you to be able to save your favorite looks!');
     }
   };
 
@@ -173,8 +178,8 @@ export default function Recommendations() {
             transition={{ duration: 0.5 }}
             className="text-center p-8 bg-white rounded-2xl shadow-xl"
           >
-            <h2 className="text-3xl font-bold text-red-600 mb-4">{t('auth.required')}</h2>
-            <p className="text-lg text-gray-700 mb-6">{t('auth.signInPrompt')}</p>
+            <h2 className="text-3xl font-bold text-red-600 mb-4">Hey there! 👋</h2>
+            <p className="text-lg text-gray-700 mb-6">We'd love to show you some amazing outfit recommendations! Please sign in so we can create personalized suggestions just for you. 💫</p>
             <a
               href="/"
               className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"

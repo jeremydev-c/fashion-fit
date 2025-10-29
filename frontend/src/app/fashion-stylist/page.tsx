@@ -107,7 +107,7 @@ export default function FashionStylist() {
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'stylist',
-        content: `Sorry, I encountered an error: ${error.message}. Please make sure the backend server is running on port 5000 and try again!`,
+        content: `Oops! 😅 I ran into a little hiccup: ${error.message}\n\nDon't worry though - just give me another moment and try asking again. Sometimes even AI stylists need a quick break! ☕`,
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
@@ -134,7 +134,8 @@ export default function FashionStylist() {
           className="text-center"
         >
           <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-          <h2 className="text-2xl font-bold text-gray-800">{t('common.loading')}</h2>
+          <h2 className="text-2xl font-bold text-gray-800">Getting your stylist ready... ✨</h2>
+          <p className="text-sm text-gray-500 mt-2">Just a moment while we prepare everything!</p>
         </motion.div>
       </div>
     );
@@ -152,8 +153,8 @@ export default function FashionStylist() {
             transition={{ duration: 0.5 }}
             className="text-center p-8 bg-white rounded-2xl shadow-xl"
           >
-            <h2 className="text-3xl font-bold text-red-600 mb-4">{t('auth.required')}</h2>
-            <p className="text-lg text-gray-700 mb-6">{t('auth.signInPrompt')}</p>
+            <h2 className="text-3xl font-bold text-red-600 mb-4">Hey there! 👋</h2>
+            <p className="text-lg text-gray-700 mb-6">We'd love to introduce you to your AI Fashion Stylist! Please sign in so we can start styling together. 💫</p>
             <a
               href="/"
               className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"

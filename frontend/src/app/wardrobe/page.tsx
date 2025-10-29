@@ -90,13 +90,13 @@ export default function Wardrobe() {
         setUploadForm({ name: '', category: '', color: '', brand: '', image: null });
         
         // Show simple success message
-        alert('🎉 Item uploaded and analyzed successfully!\n\nYour clothing has been added to your wardrobe with AI-generated tags for better organization.');
+        alert('🎉 Awesome! Your item has been added to your wardrobe!\n\nWe\'ve analyzed it with AI and added smart tags to help you stay organized. Ready to create some stylish outfits?');
       } else {
-        alert('Upload failed: ' + data.error);
+        alert('Oops! We couldn\'t upload your item right now. 🙈\n\n' + (data.error || 'Please try again in a moment!'));
       }
     } catch (error) {
       console.error('Upload error:', error);
-      alert('Upload failed: ' + error.message);
+      alert('Hmm, something went wrong while uploading. 😅\n\nDon\'t worry, your item is safe! Please check your connection and try again.');
     } finally {
       setUploading(false);
     }
@@ -111,8 +111,11 @@ export default function Wardrobe() {
 
   const updateItemCategory = async (itemId, newCategory) => {
     const token = localStorage.getItem('fashionFitToken');
+    if (!token) return; // No point trying without token
+    
     try {
-      const response = await fetch(`http://localhost:5000/api/wardrobe/${itemId}`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/wardrobe/${itemId}`, {
         method: 'PUT',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -124,22 +127,25 @@ export default function Wardrobe() {
       const data = await response.json();
       if (data.success) {
         await fetchWardrobeItems(token);
-        alert('✅ Category updated successfully!');
+        alert('Perfect! ✨ Your item category has been updated.\n\nYour wardrobe just got a bit more organized!');
       } else {
-        alert('Failed to update category: ' + data.error);
+        alert('Oh no! We couldn\'t update that right now. 🙈\n\n' + (data.error || 'Please try again in a moment!'));
       }
     } catch (error) {
       console.error('Update error:', error);
-      alert('Failed to update category: ' + error.message);
+      alert('Oops! Something went wrong while updating. 😅\n\nLet\'s try that again - sometimes these things need a second attempt!');
     }
   };
 
   const deleteItem = async (itemId) => {
-    if (!confirm('Are you sure you want to delete this item?')) return;
+    if (!confirm('Wait! 👋\n\nAre you sure you want to remove this item from your wardrobe? This can\'t be undone, but we totally get it if it\'s time to say goodbye!')) return;
     
     const token = localStorage.getItem('fashionFitToken');
+    if (!token) return;
+    
     try {
-      const response = await fetch(`http://localhost:5000/api/wardrobe/${itemId}`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/wardrobe/${itemId}`, {
         method: 'DELETE',
         headers: {
           'Authorization': `Bearer ${token}`
@@ -149,30 +155,33 @@ export default function Wardrobe() {
       const data = await response.json();
       if (data.success) {
         await fetchWardrobeItems(token);
-        alert('✅ Item deleted successfully!');
+        alert('Done! 🗑️ Your item has been removed.\n\nDon\'t worry, your wardrobe is still amazing without it!');
       } else {
-        alert('Failed to delete item: ' + data.error);
+        alert('Hmm, we couldn\'t remove that item right now. 🙈\n\n' + (data.error || 'Please try again in a moment!'));
       }
     } catch (error) {
       console.error('Delete error:', error);
-      alert('Failed to delete item: ' + error.message);
+      alert('Oops! Something went wrong while trying to delete. 😅\n\nLet\'s try that again - technical hiccups happen to the best of us!');
     }
   };
 
+  // Helper function to upload a single item
   const uploadItem = async (imageFile: File) => {
     const formData = new FormData();
     formData.append('image', imageFile);
+    // Use filename as default name (remove extension)
     formData.append('name', imageFile.name.split('.')[0]);
-    formData.append('category', 'auto-detected');
+    formData.append('category', 'auto-detected'); // AI will detect these
     formData.append('color', 'auto-detected');
     formData.append('brand', 'auto-detected');
 
-    const response = await fetch('http://localhost:5000/api/wardrobe', {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+    const response = await fetch(`${apiUrl}/api/wardrobe`, {
       method: 'POST',
       headers: {
-        'Authorization': `Bearer ${token}`
+        'Authorization': `Bearer ${token}` // JWT token for auth
       },
-      body: formData
+      body: formData // multipart/form-data
     });
 
     const data = await response.json();
@@ -188,10 +197,10 @@ export default function Wardrobe() {
       for (const photo of photos) {
         await uploadItem(photo);
       }
-      alert(`Successfully processed ${photos.length} photos!`);
+      alert(`🎉 Amazing! We've processed all ${photos.length} of your photos!\n\nYour wardrobe just got a major upgrade! Time to create some stunning outfits. 💫`);
     } catch (error) {
       console.error('Bulk upload error:', error);
-      alert('Failed to process some photos');
+      alert('Oops! 😅 We hit a snag while processing some of your photos.\n\nNo worries though - some items might have been added! Check your wardrobe to see what made it through.');
     } finally {
       setUploading(false);
     }
