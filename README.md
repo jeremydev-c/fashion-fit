@@ -398,7 +398,7 @@ Comprehensive technical documentation available:
 
 **Interested in collaboration?** Let's connect!
 
-- 📧 Email: [Add your email]
+- 📧 Email: nduatijeremy7@gmail.com
 - 💼 LinkedIn: [Add LinkedIn]
 - 🌐 Portfolio: [Add portfolio URL]
 - 🐙 GitHub: [@jeremydev-c](https://github.com/jeremydev-c)
