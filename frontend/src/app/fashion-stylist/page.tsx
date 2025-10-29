@@ -14,7 +14,7 @@ interface Message {
 }
 
 export default function FashionStylist() {
-  const { user, token } = useAuth();
+  const { user, token, loading } = useAuth();
   const { t, currentLocale } = useTranslations();
   const [messages, setMessages] = useState<Message[]>([]);
   const [inputMessage, setInputMessage] = useState('');
@@ -68,7 +68,8 @@ export default function FashionStylist() {
         });
       } catch (apiError) {
         console.log('API route failed, trying direct backend connection:', apiError);
-        response = await fetch('http://localhost:5000/api/recommendations/fashion-stylist', {
+        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+        response = await fetch(`${apiUrl}/api/recommendations/fashion-stylist`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
@@ -122,6 +123,24 @@ export default function FashionStylist() {
     }
   };
 
+  // Show loading screen while checking auth
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 flex items-center justify-center">
+        <motion.div
+          initial={{ opacity: 0, scale: 0.8 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5 }}
+          className="text-center"
+        >
+          <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+          <h2 className="text-2xl font-bold text-gray-800">{t('common.loading')}</h2>
+        </motion.div>
+      </div>
+    );
+  }
+
+  // Show auth required only after loading is complete
   if (!user) {
     return (
       <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50">

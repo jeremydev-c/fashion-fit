@@ -10,7 +10,8 @@ export const useAuth = () => {
     if (storedToken) {
       setToken(storedToken);
       // Verify token with backend
-      fetch('http://localhost:5000/api/auth/verify', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      fetch(`${apiUrl}/api/auth/verify`, {
         headers: {
           'Authorization': `Bearer ${storedToken}`
         }
@@ -41,7 +42,8 @@ export const useAuth = () => {
     localStorage.setItem('fashionFitToken', newToken);
     setToken(newToken);
     // Verify the new token
-    fetch('http://localhost:5000/api/auth/verify', {
+    const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+    fetch(`${apiUrl}/api/auth/verify`, {
       headers: {
         'Authorization': `Bearer ${newToken}`
       }

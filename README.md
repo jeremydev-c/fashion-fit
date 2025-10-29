@@ -10,7 +10,15 @@
 
 **An intelligent fashion management platform powered by custom AI computer vision and machine learning**
 
-[Features](#-features) • [Tech Stack](#-tech-stack) • [Getting Started](#-getting-started) • [Project Structure](#-project-structure) • [Documentation](#-documentation)
+<div align="center">
+
+[![Live Demo](https://img.shields.io/badge/Live%20Demo-Click%20Here-brightgreen?style=for-the-badge)](https://your-demo-url.vercel.app) 
+[![GitHub Stars](https://img.shields.io/github/stars/jeremydev-c/fashion-fit?style=for-the-badge)](https://github.com/jeremydev-c/fashion-fit)
+[![License](https://img.shields.io/badge/License-MIT-yellow?style=for-the-badge)](LICENSE)
+
+</div>
+
+[Features](#-features) • [Tech Stack](#-tech-stack) • [Live Demo](#-live-demo) • [Getting Started](#-getting-started) • [Project Structure](#-project-structure) • [Documentation](#-documentation)
 
 </div>
 
@@ -28,6 +36,30 @@ Fashion Fit is a full-stack web application that revolutionizes wardrobe managem
 - 🎨 **AI Styling**: Get personalized outfit recommendations powered by OpenAI
 - 📊 **Analytics Dashboard**: Track your wardrobe and style insights
 - 🔐 **Secure Auth**: Google OAuth integration
+
+---
+
+## 📊 Project Statistics
+
+- **Lines of Code**: 7,000+ 
+- **Languages**: TypeScript, JavaScript
+- **Components**: 10+ React components
+- **API Endpoints**: 15+ RESTful routes
+- **Supported Languages**: 11 (i18n)
+- **AI Models**: Custom Computer Vision + GPT-4
+- **Database Models**: 3 (User, ClothingItem, Outfit)
+
+---
+
+## 🌐 Live Demo
+
+> **Note**: Currently configured for local development. For live deployment:
+> - Frontend: Deploy to [Vercel](https://vercel.com) 
+> - Backend: Deploy to [Render](https://render.com) or [Railway](https://railway.app)
+> - Database: MongoDB Atlas (already cloud-hosted)
+
+📹 **[Watch Demo Video](#)** *(Coming Soon)*  
+🚀 **[Try Live Demo](https://your-demo-url.vercel.app)** *(Add your deployment URL here)*
 
 ---
 
@@ -118,7 +150,7 @@ Fashion Fit is a full-stack web application that revolutionizes wardrobe managem
 
 1. **Clone the repository**
 ```bash
-git clone https://github.com/yourusername/fashion-fit.git
+git clone https://github.com/jeremydev-c/fashion-fit.git
 cd fashion-fit
 ```
 
@@ -263,13 +295,29 @@ This project is licensed under the MIT License - see the LICENSE file for detail
 
 ---
 
+## 💼 Portfolio Showcase
+
+This project demonstrates:
+
+✅ **Full-Stack Expertise**: End-to-end application development  
+✅ **AI/ML Implementation**: Custom computer vision and ML algorithms  
+✅ **Modern Tech Stack**: Latest Next.js, React, TypeScript  
+✅ **Production Ready**: Error handling, security, scalability  
+✅ **Internationalization**: Multi-language support (11 languages)  
+✅ **Real-World Problem Solving**: Cost optimization, hybrid AI approach  
+✅ **Code Quality**: TypeScript, proper architecture, documentation  
+
+**Perfect for showcasing to potential employers!** 🎯
+
 ## 👨‍💻 Author
 
-Built with ❤️ as a portfolio project showcasing:
+Built with ❤️ by [jeremydev-c](https://github.com/jeremydev-c) as a portfolio project showcasing:
 - Full-stack development capabilities
 - AI/ML integration expertise
 - Modern web development practices
 - Production-ready code quality
+
+**Looking for opportunities in:** Full-Stack Development • AI/ML Engineering • React/Next.js Specialization
 
 ---
 

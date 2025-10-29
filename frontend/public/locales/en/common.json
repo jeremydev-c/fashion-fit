@@ -1,0 +1,227 @@
+{
+  "navigation": {
+    "home": "Home",
+    "wardrobe": "My Wardrobe",
+    "recommendations": "AI Recommendations",
+    "stylist": "Fashion Stylist",
+    "profile": "Profile",
+    "favorites": "Favorites",
+    "settings": "Settings",
+    "signOut": "Sign Out",
+    "signIn": "Sign In"
+  },
+  "common": {
+    "loading": "Loading...",
+    "welcome": "Welcome, {{name}}! ✨",
+    "subtitle": "Ready to revolutionize your style? Your personal fashion AI is here to transform how you dress.",
+    "description": "Discover outfits you never imagined, get stunning style tips, and become a fashion icon."
+  },
+  "home": {
+    "title": "Fashion Fit",
+    "signIn": "Sign In",
+    "subtitle": "Your Personal Fashion Assistant",
+    "description": "AI-powered outfit recommendations, wardrobe management, and style tips tailored for you.",
+    "getStarted": "Get Started Free",
+    "cta": {
+      "button": "Get Started"
+    },
+    "features": {
+      "title": "Features",
+      "aiWardrobe": {
+        "title": "AI Wardrobe",
+        "description": "Upload your clothes and let AI analyze and organize them."
+      },
+      "smartRecommendations": {
+        "title": "Smart Recommendations",
+        "description": "Personalized suggestions based on your style, weather, and occasion."
+      },
+      "styleAnalytics": {
+        "title": "Style Analytics",
+        "description": "Learn trends and tips to elevate your style game."
+      },
+      "fashionStylist": {
+        "title": "AI Fashion Stylist",
+        "description": "Get personalized styling advice from your AI fashion assistant."
+      }
+    }
+  },
+  "wardrobe": {
+    "title": "My Wardrobe",
+    "subtitle": "Manage your clothing collection",
+    "uploadItem": "Upload Item",
+    "noItems": "No items yet",
+    "uploadFirst": "Upload some items to get started!",
+    "itemName": "Item Name",
+    "category": "Category",
+    "color": "Color",
+    "brand": "Brand (Optional)",
+    "selectImage": "Select Image",
+    "cancel": "Cancel",
+    "uploading": "Uploading...",
+    "upload": "Upload",
+    "categories": {
+      "top": "Tops",
+      "bottom": "Bottoms",
+      "dress": "Dresses",
+      "shoes": "Shoes",
+      "accessories": "Accessories",
+      "outerwear": "Outerwear",
+      "underwear": "Underwear"
+    }
+  },
+  "recommendations": {
+    "title": "AI Recommendations",
+    "subtitle": "Discover perfect combinations made just for you",
+    "getRecommendations": "Get AI Recommendations",
+    "loadingRecommendations": "Generating recommendations...",
+    "noRecommendations": "No recommendations available yet",
+    "uploadItems": "Upload some items to your wardrobe first to get personalized recommendations!",
+    "filters": {
+      "title": "Filter Options",
+      "occasion": "Occasion",
+      "weather": "Weather",
+      "style": "Style",
+      "colorPreference": "Color",
+      "apply": "Apply Filters",
+      "clear": "Hide Filters"
+    },
+    "occasions": {
+      "casual": "Casual",
+      "formal": "Formal",
+      "work": "Work",
+      "party": "Party",
+      "sports": "Sports",
+      "date": "Date",
+      "travel": "Travel"
+    },
+    "weather": {
+      "summer": "Summer",
+      "winter": "Winter",
+      "spring": "Spring",
+      "autumn": "Autumn",
+      "all-season": "All Season"
+    },
+    "styles": {
+      "casual": "Casual",
+      "formal": "Formal",
+      "streetwear": "Streetwear",
+      "minimalist": "Minimalist",
+      "bohemian": "Bohemian",
+      "vintage": "Vintage"
+    },
+    "colors": {
+      "any": "Any Color",
+      "black": "Black",
+      "white": "White",
+      "red": "Red",
+      "blue": "Blue",
+      "green": "Green",
+      "yellow": "Yellow",
+      "purple": "Purple",
+      "pink": "Pink",
+      "orange": "Orange",
+      "brown": "Brown",
+      "gray": "Gray",
+      "navy": "Navy",
+      "beige": "Beige",
+      "maroon": "Maroon",
+      "olive": "Olive"
+    },
+    "outfit": {
+      "items": "Items",
+      "rating": "Rate this outfit",
+      "feedback": "Feedback",
+      "saveToFavorites": "Save to Favorites",
+      "confidence": "Confidence"
+    }
+  },
+  "stylist": {
+    "title": "AI Fashion Stylist",
+    "subtitle": "Chat with your personal fashion assistant",
+    "placeholder": "Ask me anything about fashion...",
+    "send": "Send",
+    "typing": "AI is typing...",
+    "thinking": "AI is thinking...",
+    "authRequired": "Please sign in to use the Fashion Stylist",
+    "welcome": "Hello {{name}}! I'm your AI fashion stylist. How can I help you with your style today?",
+    "examples": {
+      "title": "Try asking:"
+    }
+  },
+  "settings": {
+    "title": "Settings",
+    "language": {
+      "title": "Language",
+      "description": "Choose your preferred language for the application interface."
+    },
+    "privacy": {
+      "title": "Privacy & Data",
+      "description": "Manage your privacy settings and data preferences."
+    },
+    "notifications": {
+      "title": "Notifications",
+      "description": "Configure how you receive updates and alerts."
+    }
+  },
+  "dashboard": {
+    "title": "Dashboard",
+    "subtitle": "Your fashion journey at a glance",
+    "stats": {
+      "fashionPieces": "Fashion Pieces",
+      "ready": "Ready to grow!",
+      "aiCombinations": "AI Combinations",
+      "endless": "Endless possibilities!",
+      "stylePotential": "Style Potential",
+      "amazing": "You're amazing!",
+      "fashionReady": "Fashion Ready",
+      "letsGo": "Let's go!"
+    },
+    "activity": {
+      "title": "Your Fashion Journey Begins!",
+      "welcome": "Welcome to the future of fashion!",
+      "revolution": "Your AI-powered style revolution starts now",
+      "welcomeDelivered": "Personalized welcome experience delivered",
+      "checkEmail": "Check your email for exclusive style tips!",
+      "profileReady": "Your fashion profile is ready",
+      "analyzing": "AI is analyzing your style preferences"
+    },
+    "actions": {
+      "title": "Jump Into Action!",
+      "uploadTitle": "Upload Your Style",
+      "uploadDesc": "Transform photos into smart wardrobe items",
+      "magicTitle": "Get AI Magic",
+      "magicDesc": "Discover outfit combinations that wow",
+      "insightsTitle": "Style Insights",
+      "insightsDesc": "Unlock your fashion DNA"
+    },
+    "weather": {
+      "title": "Perfect Weather for Style",
+      "subtitle": "Sunny & Perfect",
+      "ideal": "Ideal for light layers and vibrant colors!",
+      "tip": "Ideal for light layers and vibrant colors!"
+    },
+    "style": {
+      "title": "Style Secret of the Day",
+      "quote": "Mix textures for visual interest - try pairing a smooth silk blouse with textured denim for an effortlessly chic look that screams sophistication!",
+      "badge": "Pro Stylist Tip",
+      "note": "This combination creates visual depth and sophistication."
+    }
+  },
+  "auth": {
+    "signIn": "Sign In",
+    "signOut": "Sign Out",
+    "signingIn": "Signing in...",
+    "required": "Authentication Required",
+    "signInPrompt": "Please sign in to access this feature.",
+    "goHome": "Go to Home"
+  },
+  "profile": {
+    "title": "Profile",
+    "edit": "Edit Profile"
+  },
+  "favorites": {
+    "title": "Favorites",
+    "noFavorites": "No favorites yet",
+    "addFavorites": "Start saving your favorite outfits!"
+  }
+}
