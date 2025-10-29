@@ -1,0 +1,171 @@
+{
+  "navigation": {
+    "home": "首页",
+    "wardrobe": "我的衣橱",
+    "recommendations": "AI 推荐",
+    "stylist": "时尚造型师",
+    "profile": "个人资料",
+    "favorites": "收藏夹",
+    "settings": "设置",
+    "signOut": "退出登录",
+    "signIn": "登录"
+  },
+  "common": {
+    "loading": "加载中...",
+    "welcome": "欢迎，{{name}}！✨",
+    "subtitle": "准备好改变你的穿搭风格了吗？你的个人时尚AI来了。",
+    "description": "发现从未想过的搭配，获取时尚建议，成为潮流引领者。"
+  },
+  "home": {
+    "title": "Fashion Fit",
+    "signIn": "登录",
+    "subtitle": "你的个人时尚助理",
+    "description": "AI 服装推荐、衣橱管理与风格建议，为你量身打造。",
+    "getStarted": "免费开始",
+    "features": {
+      "title": "功能",
+      "aiWardrobe": {
+        "title": "AI 衣橱",
+        "description": "上传衣物，AI 自动分析与整理。"
+      },
+      "smartRecommendations": {
+        "title": "智能推荐",
+        "description": "根据风格、天气与场合生成个性化建议。"
+      },
+      "styleAnalytics": {
+        "title": "风格分析",
+        "description": "了解趋势，提升你的穿搭风格。"
+      }
+    }
+  }
+  ,
+  "recommendations": {
+    "title": "AI 推荐",
+    "subtitle": "为你量身打造的完美穿搭组合",
+    "getRecommendations": "获取 AI 推荐",
+    "loadingRecommendations": "正在生成推荐...",
+    "noRecommendations": "暂时没有推荐",
+    "uploadItems": "先把一些服饰添加到衣橱以获得个性化推荐",
+    "filters": {
+      "title": "筛选项",
+      "occasion": "场合",
+      "weather": "天气",
+      "style": "风格",
+      "colorPreference": "颜色",
+      "apply": "应用筛选",
+      "clear": "隐藏筛选"
+    },
+    "occasions": {
+      "casual": "休闲",
+      "formal": "正式",
+      "work": "工作",
+      "party": "派对",
+      "sports": "运动",
+      "date": "约会",
+      "travel": "旅行"
+    },
+    "weather": {
+      "summer": "夏季",
+      "winter": "冬季",
+      "spring": "春季",
+      "autumn": "秋季",
+      "all-season": "四季通用"
+    },
+    "styles": {
+      "casual": "休闲",
+      "formal": "正式",
+      "streetwear": "街头",
+      "minimalist": "极简",
+      "bohemian": "波西米亚",
+      "vintage": "复古"
+    },
+    "colors": {
+      "any": "任意颜色",
+      "black": "黑色",
+      "white": "白色",
+      "red": "红色",
+      "blue": "蓝色",
+      "green": "绿色",
+      "yellow": "黄色",
+      "purple": "紫色",
+      "pink": "粉色",
+      "orange": "橙色",
+      "brown": "棕色",
+      "gray": "灰色",
+      "navy": "海军蓝",
+      "beige": "米色",
+      "maroon": "酒红",
+      "olive": "橄榄绿"
+    },
+    "outfit": {
+      "items": "单品",
+      "confidence": "置信度",
+      "rateOutfit": "评价搭配",
+      "love": "超喜欢",
+      "like": "喜欢",
+      "notMyStyle": "不符合我的风格",
+      "woreThis": "穿过",
+      "saveToFavorites": "保存到收藏"
+    }
+  }
+  ,
+  "dashboard": {
+    "stats": {
+      "fashionPieces": "时尚单品",
+      "ready": "准备成长！",
+      "aiCombinations": "AI 搭配",
+      "endless": "无限可能！",
+      "stylePotential": "风格潜力",
+      "amazing": "你太棒了！",
+      "fashionReady": "时尚就绪",
+      "letsGo": "开始吧！"
+    },
+    "activity": {
+      "title": "你的时尚之旅开始了！",
+      "welcome": "欢迎来到时尚的未来！",
+      "revolution": "你的 AI 风格革命从现在开始",
+      "welcomeDelivered": "已发送个性化欢迎体验",
+      "checkEmail": "查看邮箱获取专属技巧",
+      "profileReady": "你的时尚档案已就绪",
+      "analyzing": "AI 正在分析你的偏好"
+    },
+    "actions": {
+      "title": "快捷操作",
+      "uploadTitle": "上传你的风格",
+      "uploadDesc": "将照片转为智能单品",
+      "magicTitle": "获取 AI 魔法",
+      "magicDesc": "发现惊艳的搭配组合",
+      "insightsTitle": "风格洞察",
+      "insightsDesc": "解锁你的时尚 DNA"
+    },
+    "weather": {
+      "title": "适合穿搭的完美天气",
+      "subtitle": "晴朗完美",
+      "tip": "适合轻薄叠穿与明亮色彩！"
+    },
+    "style": {
+      "title": "今日风格秘诀",
+      "quote": "\"混搭材质：丝滑与牛仔打造轻松时髦感。\"",
+      "badge": "造型师建议",
+      "note": "适合日常出行与职场场景！"
+    }
+  }
+  ,
+  "wardrobe": {
+    "title": "我的衣橱",
+    "subtitle": "管理与整理你的服饰",
+    "uploadItem": "上传新物品",
+    "uploading": "上传中...",
+    "itemName": "物品名称",
+    "category": "类别",
+    "color": "颜色",
+    "brand": "品牌（可选）",
+    "selectImage": "上传照片",
+    "upload": "上传",
+    "cancel": "取消",
+    "noItems": "你的衣橱是空的",
+    "uploadFirst": "从添加你喜欢的服饰开始吧！"
+  }
+}
+
+ 

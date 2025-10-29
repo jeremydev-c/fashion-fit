@@ -1,0 +1,211 @@
+{
+  "navigation": {
+    "home": "Inicio",
+    "wardrobe": "Mi Armario",
+    "recommendations": "Recomendaciones IA",
+    "stylist": "Estilista de Moda",
+    "profile": "Perfil",
+    "favorites": "Favoritos",
+    "settings": "Ajustes",
+    "signOut": "Cerrar sesión",
+    "signIn": "Iniciar sesión"
+  },
+  "common": {
+    "loading": "Cargando...",
+    "welcome": "¡Bienvenido, {{name}}! ✨",
+    "subtitle": "¿Listo para revolucionar tu estilo? Tu IA de moda personal está aquí para transformar cómo te vistes.",
+    "description": "Descubre atuendos que nunca imaginaste, obtén consejos de estilo sorprendentes y conviértete en un referente de la moda."
+  },
+  "home": {
+    "title": "Fashion Fit",
+    "signIn": "Iniciar sesión",
+    "subtitle": "Tu asistente de moda personal",
+    "description": "Recomendaciones de atuendos con IA, gestión de armario y consejos de estilo hechos para ti.",
+    "getStarted": "Comenzar gratis",
+    "features": {
+      "title": "Características",
+      "aiWardrobe": {
+        "title": "Armario con IA",
+        "description": "Sube tu ropa y deja que la IA la analice y organice."
+      },
+      "smartRecommendations": {
+        "title": "Recomendaciones inteligentes",
+        "description": "Sugerencias personalizadas según tu estilo, clima y ocasión."
+      },
+      "styleAnalytics": {
+        "title": "Análisis de estilo",
+        "description": "Aprende tendencias y consejos para mejorar tu estilo."
+      }
+    }
+  },
+  "recommendations": {
+    "title": "Recomendaciones IA",
+    "subtitle": "Descubre combinaciones perfectas hechas para ti",
+    "getRecommendations": "Obtener recomendaciones de IA",
+    "loadingRecommendations": "Generando recomendaciones...",
+    "noRecommendations": "Aún no hay recomendaciones",
+    "uploadItems": "Sube algunas prendas a tu armario para obtener recomendaciones personalizadas",
+    "filters": {
+      "title": "Opciones de filtro",
+      "occasion": "Ocasión",
+      "weather": "Clima",
+      "style": "Estilo",
+      "colorPreference": "Color",
+      "apply": "Aplicar filtros",
+      "clear": "Ocultar filtros"
+    },
+    "occasions": {
+      "casual": "Casual",
+      "formal": "Formal",
+      "work": "Trabajo",
+      "party": "Fiesta",
+      "sports": "Deporte",
+      "date": "Cita",
+      "travel": "Viaje"
+    },
+    "weather": {
+      "summer": "Verano",
+      "winter": "Invierno",
+      "spring": "Primavera",
+      "autumn": "Otoño",
+      "all-season": "Todo el año"
+    },
+    "styles": {
+      "casual": "Casual",
+      "formal": "Formal",
+      "streetwear": "Urbano",
+      "minimalist": "Minimalista",
+      "bohemian": "Bohemio",
+      "vintage": "Vintage"
+    },
+    "colors": {
+      "any": "Cualquier color",
+      "black": "Negro",
+      "white": "Blanco",
+      "red": "Rojo",
+      "blue": "Azul",
+      "green": "Verde",
+      "yellow": "Amarillo",
+      "purple": "Morado",
+      "pink": "Rosa",
+      "orange": "Naranja",
+      "brown": "Marrón",
+      "gray": "Gris",
+      "navy": "Azul marino",
+      "beige": "Beige",
+      "maroon": "Granate",
+      "olive": "Oliva"
+    },
+    "outfit": {
+      "items": "Prendas",
+      "confidence": "Confianza",
+      "rateOutfit": "Valorar conjunto",
+      "love": "Me encanta",
+      "like": "Me gusta",
+      "notMyStyle": "No es mi estilo",
+      "woreThis": "Lo llevé",
+      "saveToFavorites": "Guardar en favoritos"
+    }
+  }
+  ,
+  "dashboard": {
+    "stats": {
+      "fashionPieces": "Prendas",
+      "ready": "¡Listo para crecer!",
+      "aiCombinations": "Combinaciones IA",
+      "endless": "¡Posibilidades infinitas!",
+      "stylePotential": "Potencial de estilo",
+      "amazing": "¡Eres increíble!",
+      "fashionReady": "Listo para la moda",
+      "letsGo": "¡Vamos!"
+    },
+    "activity": {
+      "title": "¡Comienza tu viaje de moda!",
+      "welcome": "¡Bienvenido al futuro de la moda!",
+      "revolution": "Tu revolución de estilo con IA comienza ahora",
+      "welcomeDelivered": "Experiencia de bienvenida personalizada enviada",
+      "checkEmail": "Revisa tu correo para consejos exclusivos",
+      "profileReady": "Tu perfil de moda está listo",
+      "analyzing": "La IA está analizando tus preferencias"
+    },
+    "actions": {
+      "title": "¡Ponte en marcha!",
+      "uploadTitle": "Sube tu estilo",
+      "uploadDesc": "Convierte fotos en prendas inteligentes",
+      "magicTitle": "Obtén magia IA",
+      "magicDesc": "Descubre combinaciones que sorprenden",
+      "insightsTitle": "Ideas de estilo",
+      "insightsDesc": "Desbloquea tu ADN de moda"
+    },
+    "weather": {
+      "title": "Clima perfecto para el estilo",
+      "subtitle": "Soleado y perfecto",
+      "tip": "¡Ideal para capas ligeras y colores vibrantes!"
+    },
+    "style": {
+      "title": "Secreto de estilo del día",
+      "quote": "\"Mezcla texturas para dar interés: seda lisa con denim texturizado para un look chic.\"",
+      "badge": "Consejo de estilista",
+      "note": "¡Funciona tanto en salidas casuales como en ambientes profesionales!"
+    }
+  }
+  "wardrobe": {
+    "title": "Mi Armario",
+    "subtitle": "Organiza y gestiona tu colección de ropa",
+    "uploadItem": "Subir nuevo artículo",
+    "uploading": "Subiendo...",
+    "itemName": "Nombre del artículo",
+    "category": "Categoría",
+    "color": "Color",
+    "brand": "Marca (opcional)",
+    "selectImage": "Subir foto",
+    "upload": "Subir",
+    "cancel": "Cancelar",
+    "noItems": "Tu armario está vacío",
+    "uploadFirst": "¡Empieza subiendo tus prendas favoritas!"
+  }
+  ,
+  "dashboard": {
+    "stats": {
+      "fashionPieces": "Prendas",
+      "ready": "¡Listo para crecer!",
+      "aiCombinations": "Combinaciones IA",
+      "endless": "¡Posibilidades infinitas!",
+      "stylePotential": "Potencial de estilo",
+      "amazing": "¡Eres increíble!",
+      "fashionReady": "Listo para la moda",
+      "letsGo": "¡Vamos!"
+    },
+    "activity": {
+      "title": "¡Comienza tu viaje de moda!",
+      "welcome": "¡Bienvenido al futuro de la moda!",
+      "revolution": "Tu revolución de estilo con IA comienza ahora",
+      "welcomeDelivered": "Experiencia de bienvenida personalizada enviada",
+      "checkEmail": "Revisa tu correo para consejos exclusivos",
+      "profileReady": "Tu perfil de moda está listo",
+      "analyzing": "La IA está analizando tus preferencias"
+    },
+    "actions": {
+      "title": "¡Ponte en marcha!",
+      "uploadTitle": "Sube tu estilo",
+      "uploadDesc": "Convierte fotos en prendas inteligentes",
+      "magicTitle": "Obtén magia IA",
+      "magicDesc": "Descubre combinaciones que sorprenden",
+      "insightsTitle": "Ideas de estilo",
+      "insightsDesc": "Desbloquea tu ADN de moda"
+    },
+    "weather": {
+      "title": "Clima perfecto para el estilo",
+      "subtitle": "Soleado y perfecto",
+      "tip": "¡Ideal para capas ligeras y colores vibrantes!"
+    },
+    "style": {
+      "title": "Secreto de estilo del día",
+      "quote": "\"Mezcla texturas para dar interés: seda lisa con denim texturizado para un look chic.\"",
+      "badge": "Consejo de estilista",
+      "note": "¡Funciona para salidas casuales y entornos profesionales!"
+    }
+  }
+}
+
+ 

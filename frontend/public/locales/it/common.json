@@ -1,0 +1,171 @@
+{
+  "navigation": {
+    "home": "Home",
+    "wardrobe": "Il Mio Guardaroba",
+    "recommendations": "Raccomandazioni IA",
+    "stylist": "Stylist di Moda",
+    "profile": "Profilo",
+    "favorites": "Preferiti",
+    "settings": "Impostazioni",
+    "signOut": "Esci",
+    "signIn": "Accedi"
+  },
+  "common": {
+    "loading": "Caricamento...",
+    "welcome": "Benvenuto, {{name}}! ✨",
+    "subtitle": "Pronto a rivoluzionare il tuo stile? La tua IA di moda personale è qui.",
+    "description": "Scopri nuovi outfit, ricevi consigli di stile e diventa un punto di riferimento."
+  },
+  "home": {
+    "title": "Fashion Fit",
+    "signIn": "Accedi",
+    "subtitle": "Il tuo assistente di moda personale",
+    "description": "Consigli di outfit con IA, gestione del guardaroba e suggerimenti di stile su misura.",
+    "getStarted": "Inizia gratis",
+    "features": {
+      "title": "Funzionalità",
+      "aiWardrobe": {
+        "title": "Guardaroba IA",
+        "description": "Carica i tuoi capi e lascia che l'IA li analizzi e organizzi."
+      },
+      "smartRecommendations": {
+        "title": "Raccomandazioni intelligenti",
+        "description": "Suggerimenti personalizzati per stile, meteo e occasione."
+      },
+      "styleAnalytics": {
+        "title": "Analisi dello stile",
+        "description": "Impara le tendenze e migliora il tuo stile."
+      }
+    }
+  }
+  ,
+  "recommendations": {
+    "title": "Raccomandazioni IA",
+    "subtitle": "Scopri combinazioni perfette pensate per te",
+    "getRecommendations": "Ottieni raccomandazioni IA",
+    "loadingRecommendations": "Generazione raccomandazioni...",
+    "noRecommendations": "Nessuna raccomandazione al momento",
+    "uploadItems": "Carica degli articoli nel guardaroba per suggerimenti personalizzati",
+    "filters": {
+      "title": "Opzioni filtro",
+      "occasion": "Occasione",
+      "weather": "Meteo",
+      "style": "Stile",
+      "colorPreference": "Colore",
+      "apply": "Applica filtri",
+      "clear": "Nascondi filtri"
+    },
+    "occasions": {
+      "casual": "Casual",
+      "formal": "Formale",
+      "work": "Lavoro",
+      "party": "Festa",
+      "sports": "Sport",
+      "date": "Appuntamento",
+      "travel": "Viaggio"
+    },
+    "weather": {
+      "summer": "Estate",
+      "winter": "Inverno",
+      "spring": "Primavera",
+      "autumn": "Autunno",
+      "all-season": "Tutte le stagioni"
+    },
+    "styles": {
+      "casual": "Casual",
+      "formal": "Formale",
+      "streetwear": "Streetwear",
+      "minimalist": "Minimalista",
+      "bohemian": "Bohemien",
+      "vintage": "Vintage"
+    },
+    "colors": {
+      "any": "Qualsiasi colore",
+      "black": "Nero",
+      "white": "Bianco",
+      "red": "Rosso",
+      "blue": "Blu",
+      "green": "Verde",
+      "yellow": "Giallo",
+      "purple": "Viola",
+      "pink": "Rosa",
+      "orange": "Arancione",
+      "brown": "Marrone",
+      "gray": "Grigio",
+      "navy": "Blu navy",
+      "beige": "Beige",
+      "maroon": "Bordeaux",
+      "olive": "Oliva"
+    },
+    "outfit": {
+      "items": "Capi",
+      "confidence": "Confidenza",
+      "rateOutfit": "Valuta outfit",
+      "love": "Adoro",
+      "like": "Mi piace",
+      "notMyStyle": "Non è il mio stile",
+      "woreThis": "Indossato",
+      "saveToFavorites": "Salva tra i preferiti"
+    }
+  }
+  ,
+  "dashboard": {
+    "stats": {
+      "fashionPieces": "Capi di moda",
+      "ready": "Pronto a crescere!",
+      "aiCombinations": "Combinazioni IA",
+      "endless": "Possibilità infinite!",
+      "stylePotential": "Potenziale di stile",
+      "amazing": "Sei fantastico!",
+      "fashionReady": "Pronto per la moda",
+      "letsGo": "Andiamo!"
+    },
+    "activity": {
+      "title": "Il tuo viaggio nella moda inizia!",
+      "welcome": "Benvenuto nel futuro della moda!",
+      "revolution": "La tua rivoluzione di stile con IA inizia ora",
+      "welcomeDelivered": "Esperienza di benvenuto personalizzata inviata",
+      "checkEmail": "Controlla l'email per consigli esclusivi",
+      "profileReady": "Il tuo profilo moda è pronto",
+      "analyzing": "L'IA analizza le tue preferenze"
+    },
+    "actions": {
+      "title": "Azioni rapide",
+      "uploadTitle": "Carica il tuo stile",
+      "uploadDesc": "Trasforma foto in capi intelligenti",
+      "magicTitle": "Ottieni magia IA",
+      "magicDesc": "Scopri combinazioni che stupiscono",
+      "insightsTitle": "Analisi di stile",
+      "insightsDesc": "Sblocca il tuo DNA della moda"
+    },
+    "weather": {
+      "title": "Meteo perfetto per lo stile",
+      "subtitle": "Soleggiato e perfetto",
+      "tip": "Ideale per strati leggeri e colori vivaci!"
+    },
+    "style": {
+      "title": "Segreto di stile del giorno",
+      "quote": "\"Mescola le texture: seta liscia con denim per un look chic.\"",
+      "badge": "Consiglio dello stilista",
+      "note": "Funziona sia casual che professionale!"
+    }
+  }
+  ,
+  "wardrobe": {
+    "title": "Il Mio Guardaroba",
+    "subtitle": "Organizza e gestisci la tua collezione",
+    "uploadItem": "Aggiungi nuovo capo",
+    "uploading": "Caricamento...",
+    "itemName": "Nome del capo",
+    "category": "Categoria",
+    "color": "Colore",
+    "brand": "Marca (opzionale)",
+    "selectImage": "Carica foto",
+    "upload": "Carica",
+    "cancel": "Annulla",
+    "noItems": "Il tuo guardaroba è vuoto",
+    "uploadFirst": "Inizia aggiungendo i tuoi capi preferiti!"
+  }
+}
+
+ 

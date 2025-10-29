@@ -1,0 +1,171 @@
+{
+  "navigation": {
+    "home": "ホーム",
+    "wardrobe": "私のワードローブ",
+    "recommendations": "AIおすすめ",
+    "stylist": "ファッションスタイリスト",
+    "profile": "プロフィール",
+    "favorites": "お気に入り",
+    "settings": "設定",
+    "signOut": "ログアウト",
+    "signIn": "ログイン"
+  },
+  "common": {
+    "loading": "読み込み中...",
+    "welcome": "ようこそ、{{name}} さん！✨",
+    "subtitle": "スタイルを革新する準備はできましたか？あなたのパーソナルAIがサポートします。",
+    "description": "新しいコーデを発見し、スタイルのヒントを得て、トレンドリーダーになりましょう。"
+  },
+  "home": {
+    "title": "Fashion Fit",
+    "signIn": "ログイン",
+    "subtitle": "あなたのパーソナルファッションアシスタント",
+    "description": "AIによるコーデ提案、ワードローブ管理、スタイルアドバイスをあなたに。",
+    "getStarted": "無料で始める",
+    "features": {
+      "title": "機能",
+      "aiWardrobe": {
+        "title": "AIワードローブ",
+        "description": "服をアップロードするとAIが分析・整理します。"
+      },
+      "smartRecommendations": {
+        "title": "スマート提案",
+        "description": "スタイル・天気・シーンに合わせて個別提案。"
+      },
+      "styleAnalytics": {
+        "title": "スタイル分析",
+        "description": "トレンドを学び、スタイルを磨きましょう。"
+      }
+    }
+  }
+  ,
+  "recommendations": {
+    "title": "AI おすすめ",
+    "subtitle": "あなたに合わせた完璧なコーディネート",
+    "getRecommendations": "AI おすすめを取得",
+    "loadingRecommendations": "おすすめを生成中...",
+    "noRecommendations": "おすすめはまだありません",
+    "uploadItems": "まずワードローブにアイテムを追加してください",
+    "filters": {
+      "title": "フィルター",
+      "occasion": "シーン",
+      "weather": "天気",
+      "style": "スタイル",
+      "colorPreference": "カラー",
+      "apply": "フィルターを適用",
+      "clear": "フィルターを非表示"
+    },
+    "occasions": {
+      "casual": "カジュアル",
+      "formal": "フォーマル",
+      "work": "仕事",
+      "party": "パーティー",
+      "sports": "スポーツ",
+      "date": "デート",
+      "travel": "旅行"
+    },
+    "weather": {
+      "summer": "夏",
+      "winter": "冬",
+      "spring": "春",
+      "autumn": "秋",
+      "all-season": "通年"
+    },
+    "styles": {
+      "casual": "カジュアル",
+      "formal": "フォーマル",
+      "streetwear": "ストリート",
+      "minimalist": "ミニマル",
+      "bohemian": "ボヘミアン",
+      "vintage": "ヴィンテージ"
+    },
+    "colors": {
+      "any": "すべての色",
+      "black": "黒",
+      "white": "白",
+      "red": "赤",
+      "blue": "青",
+      "green": "緑",
+      "yellow": "黄",
+      "purple": "紫",
+      "pink": "ピンク",
+      "orange": "オレンジ",
+      "brown": "茶",
+      "gray": "グレー",
+      "navy": "ネイビー",
+      "beige": "ベージュ",
+      "maroon": "えんじ",
+      "olive": "オリーブ"
+    },
+    "outfit": {
+      "items": "アイテム",
+      "confidence": "確信度",
+      "rateOutfit": "コーデを評価",
+      "love": "大好き",
+      "like": "好き",
+      "notMyStyle": "好みではない",
+      "woreThis": "着た",
+      "saveToFavorites": "お気に入りに保存"
+    }
+  }
+  ,
+  "dashboard": {
+    "stats": {
+      "fashionPieces": "ファッションアイテム",
+      "ready": "成長の準備OK！",
+      "aiCombinations": "AI コーデ",
+      "endless": "無限の可能性！",
+      "stylePotential": "スタイルの可能性",
+      "amazing": "あなたは最高！",
+      "fashionReady": "ファッション準備万端",
+      "letsGo": "さあ行こう！"
+    },
+    "activity": {
+      "title": "あなたのファッション旅が始まる！",
+      "welcome": "ファッションの未来へようこそ！",
+      "revolution": "AIでスタイル革命、今すぐスタート",
+      "welcomeDelivered": "パーソナライズされた歓迎メッセージを送信しました",
+      "checkEmail": "メールで限定のスタイルTipsをチェック",
+      "profileReady": "あなたのファッションプロフィールは準備完了",
+      "analyzing": "AIがあなたの好みを分析中"
+    },
+    "actions": {
+      "title": "クイックアクション",
+      "uploadTitle": "スタイルをアップロード",
+      "uploadDesc": "写真をスマートアイテムに変換",
+      "magicTitle": "AIマジックを体験",
+      "magicDesc": "驚きのコーデを発見",
+      "insightsTitle": "スタイル分析",
+      "insightsDesc": "あなたのファッションDNAを解放"
+    },
+    "weather": {
+      "title": "スタイルに最適な天気",
+      "subtitle": "晴れて完璧",
+      "tip": "軽いレイヤーとビビッドなカラーがおすすめ！"
+    },
+    "style": {
+      "title": "今日のスタイルの秘訣",
+      "quote": "\"異素材ミックス：シルク×デニムで簡単おしゃれ。\"",
+      "badge": "プロのスタイリストのコツ",
+      "note": "カジュアルにもビジネスにもOK！"
+    }
+  }
+  ,
+  "wardrobe": {
+    "title": "私のワードローブ",
+    "subtitle": "服のコレクションを整理・管理",
+    "uploadItem": "新しいアイテムを追加",
+    "uploading": "アップロード中...",
+    "itemName": "アイテム名",
+    "category": "カテゴリ",
+    "color": "カラー",
+    "brand": "ブランド（任意）",
+    "selectImage": "写真をアップロード",
+    "upload": "アップロード",
+    "cancel": "キャンセル",
+    "noItems": "ワードローブは空です",
+    "uploadFirst": "まずはお気に入りの服を追加しましょう！"
+  }
+}
+
+ 
