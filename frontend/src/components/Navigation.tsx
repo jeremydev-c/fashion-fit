@@ -48,20 +48,20 @@ export default function Navigation({ user }: NavigationProps) {
 
   return (
     <nav className="bg-white/90 backdrop-blur-sm shadow-lg sticky top-0 z-50">
-      <div className="container mx-auto px-6">
-        <div className="flex items-center justify-between h-16">
+      <div className="container mx-auto px-4 sm:px-6">
+        <div className="flex items-center justify-between h-14 sm:h-16">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
             <motion.div
               whileHover={{ scale: 1.05 }}
-              className="text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
+              className="text-xl sm:text-2xl font-bold bg-gradient-to-r from-purple-600 to-pink-600 bg-clip-text text-transparent"
             >
               {t('home.title')}
             </motion.div>
           </Link>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-6 lg:space-x-8">
             {user ? (
               <>
                 <Link 
@@ -154,11 +154,18 @@ export default function Navigation({ user }: NavigationProps) {
           <div className="md:hidden">
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
-              className="text-gray-700 hover:text-purple-600 transition-colors duration-200"
+              className="p-2 text-gray-700 hover:text-purple-600 transition-colors duration-200"
+              aria-label="Toggle menu"
             >
-              <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
-              </svg>
+              {isMenuOpen ? (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                </svg>
+              ) : (
+                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+              )}
             </button>
           </div>
         </div>
@@ -169,41 +176,48 @@ export default function Navigation({ user }: NavigationProps) {
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: 'auto' }}
             exit={{ opacity: 0, height: 0 }}
-            className="md:hidden border-t border-gray-200 py-4"
+            className="md:hidden border-t border-gray-200 py-4 space-y-2"
           >
             {user ? (
-              <div className="space-y-4">
+              <>
                 <Link 
                   href="/dashboard" 
-                  className="block text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
+                  className="block px-4 py-2 text-base text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors duration-200 font-medium rounded-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('navigation.home')}
                 </Link>
                 <Link 
                   href="/wardrobe" 
-                  className="block text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
+                  className="block px-4 py-2 text-base text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors duration-200 font-medium rounded-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('navigation.wardrobe')}
                 </Link>
                 <Link 
                   href="/recommendations" 
-                  className="block text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
+                  className="block px-4 py-2 text-base text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors duration-200 font-medium rounded-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('navigation.recommendations')}
                 </Link>
                 <Link 
                   href="/fashion-stylist" 
-                  className="block text-gray-700 hover:text-purple-600 transition-colors duration-200 font-medium"
+                  className="block px-4 py-2 text-base text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors duration-200 font-medium rounded-lg"
                   onClick={() => setIsMenuOpen(false)}
                 >
                   {t('navigation.stylist')}
                 </Link>
+                <Link 
+                  href="/profile" 
+                  className="block px-4 py-2 text-base text-gray-700 hover:bg-purple-50 hover:text-purple-600 transition-colors duration-200 font-medium rounded-lg"
+                  onClick={() => setIsMenuOpen(false)}
+                >
+                  {t('navigation.profile')}
+                </Link>
                 
-                <div className="pt-4 border-t border-gray-200">
-                  <div className="flex items-center space-x-3 mb-3">
+                <div className="pt-3 mt-3 border-t border-gray-200 space-y-2">
+                  <div className="flex items-center space-x-3 px-4 py-2">
                     {user.profilePicture && (
                       <img
                         src={user.profilePicture}
@@ -211,23 +225,26 @@ export default function Navigation({ user }: NavigationProps) {
                         className="w-8 h-8 rounded-full shadow-md"
                       />
                     )}
-                    <span className="text-gray-700 font-medium">{user.name}</span>
+                    <div className="flex-1 min-w-0">
+                      <p className="text-sm font-medium text-gray-800 truncate">{user.name}</p>
+                      <p className="text-xs text-gray-500 truncate">{user.email}</p>
+                    </div>
                   </div>
                   <button
                     onClick={() => {
                       handleSignOut();
                       setIsMenuOpen(false);
                     }}
-                    className="w-full px-4 py-2 bg-gradient-to-r from-gray-600 to-gray-800 text-white rounded-full hover:shadow-lg transition-all duration-300"
+                    className="w-full mx-4 px-4 py-2.5 bg-gradient-to-r from-red-500 to-red-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 text-sm font-medium"
                   >
                     {t('navigation.signOut')}
                   </button>
                 </div>
-              </div>
+              </>
             ) : (
               <Link 
                 href="/" 
-                className="block px-6 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 text-center"
+                className="block mx-4 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 text-center font-medium"
                 onClick={() => setIsMenuOpen(false)}
               >
                 {t('navigation.signIn')}

@@ -236,17 +236,17 @@ export default function Wardrobe() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50">
       <Navigation user={user} />
       
-      <main className="container mx-auto px-6 py-8">
+      <main className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent px-2">
             {t('wardrobe.title')}
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
             {t('wardrobe.subtitle')}
           </p>
         </motion.div>
@@ -256,11 +256,11 @@ export default function Wardrobe() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="flex flex-col sm:flex-row gap-4 justify-center mb-12"
+          className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center mb-8 sm:mb-12"
         >
           <button
             onClick={() => setShowUploadModal(true)}
-            className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+            className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-base sm:text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"
           >
             + {t('wardrobe.uploadItem')}
           </button>
@@ -294,9 +294,9 @@ export default function Wardrobe() {
                 initial={{ opacity: 0, scale: 0.8 }}
                 animate={{ opacity: 1, scale: 1 }}
                 transition={{ delay: index * 0.1 }}
-                className="bg-white rounded-2xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                className="bg-white rounded-2xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300"
               >
-                <div className="aspect-square bg-gray-100 rounded-xl mb-4 flex items-center justify-center overflow-hidden">
+                <div className="aspect-square bg-gray-100 rounded-xl mb-3 sm:mb-4 flex items-center justify-center overflow-hidden">
                   {item.imageUrl ? (
                     <img 
                       src={item.imageUrl} 
@@ -304,16 +304,16 @@ export default function Wardrobe() {
                       className="w-full h-full object-cover"
                     />
                   ) : (
-                    <span className="text-4xl">👕</span>
+                    <span className="text-3xl sm:text-4xl">👕</span>
                   )}
                 </div>
-                <h3 className="font-bold text-lg mb-2">{item.name}</h3>
-                <p className="text-gray-600 text-sm mb-2 capitalize">{item.category}</p>
+                <h3 className="font-bold text-base sm:text-lg mb-1 sm:mb-2 truncate">{item.name}</h3>
+                <p className="text-gray-600 text-xs sm:text-sm mb-1 sm:mb-2 capitalize">{item.category}</p>
                 <p className="text-gray-500 text-xs capitalize">{item.color}</p>
                 {item.tags && item.tags.length > 0 && (
                   <div className="mt-2 flex flex-wrap gap-1">
                     {item.tags.slice(0, 3).map((tag, idx) => (
-                      <span key={idx} className="px-2 py-1 bg-purple-100 text-purple-700 rounded-full text-xs">
+                      <span key={idx} className="px-1.5 sm:px-2 py-0.5 sm:py-1 bg-purple-100 text-purple-700 rounded-full text-xs">
                         {tag}
                       </span>
                     ))}
@@ -327,16 +327,16 @@ export default function Wardrobe() {
                     )}
                   </div>
                 )}
-                <div className="mt-2 flex gap-2">
+                <div className="mt-3 sm:mt-4 flex flex-wrap gap-2">
                   <button 
                     onClick={() => editItem(item)}
-                    className="px-2 py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition-colors"
+                    className="flex-1 sm:flex-none px-3 sm:px-2 py-1.5 sm:py-1 text-xs bg-blue-100 text-blue-700 rounded hover:bg-blue-200 transition-colors"
                   >
                     Edit
                   </button>
                   <button 
                     onClick={() => deleteItem(item._id)}
-                    className="px-2 py-1 text-xs bg-red-100 text-red-700 rounded hover:bg-red-200 transition-colors"
+                    className="flex-1 sm:flex-none px-3 sm:px-2 py-1.5 sm:py-1 text-xs bg-red-100 text-red-700 rounded hover:bg-red-200 transition-colors"
                   >
                     Delete
                   </button>
@@ -351,10 +351,10 @@ export default function Wardrobe() {
           initial={{ opacity: 0, y: 50 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.6 }}
-          className="mt-16"
+          className="mt-12 sm:mt-16"
         >
-          <h2 className="text-2xl font-bold text-center mb-8">Browse by Category</h2>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
+          <h2 className="text-xl sm:text-2xl font-bold text-center mb-6 sm:mb-8 px-2">Browse by Category</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-7 gap-3 sm:gap-4">
             {['top', 'bottom', 'dress', 'shoes', 'accessories', 'outerwear', 'underwear'].map((categoryKey, index) => {
               const itemCount = wardrobeItems.filter(item => item.category === categoryKey).length;
               
@@ -364,13 +364,13 @@ export default function Wardrobe() {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.7 + index * 0.1 }}
-                  className="bg-white/70 backdrop-blur-sm rounded-xl p-6 text-center hover:shadow-lg transition-all duration-300 cursor-pointer"
+                  className="bg-white/70 backdrop-blur-sm rounded-xl p-4 sm:p-6 text-center hover:shadow-lg transition-all duration-300 cursor-pointer"
                 >
-                  <div className="w-12 h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-3">
-                    <span className="text-xl">👕</span>
+                  <div className="w-10 h-10 sm:w-12 sm:h-12 bg-gradient-to-r from-purple-500 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-2 sm:mb-3">
+                    <span className="text-lg sm:text-xl">👕</span>
                   </div>
-                  <h3 className="font-semibold text-gray-800">{t(`wardrobe.categories.${categoryKey}`)}</h3>
-                  <p className="text-sm text-gray-600">{itemCount} items</p>
+                  <h3 className="text-xs sm:text-sm font-semibold text-gray-800">{t(`wardrobe.categories.${categoryKey}`)}</h3>
+                  <p className="text-xs text-gray-600">{itemCount} items</p>
                 </motion.div>
               );
             })}
@@ -391,27 +391,27 @@ export default function Wardrobe() {
             initial={{ scale: 0.8, opacity: 0 }}
             animate={{ scale: 1, opacity: 1 }}
             exit={{ scale: 0.8, opacity: 0 }}
-            className="bg-white rounded-2xl p-8 max-w-md w-full"
+            className="bg-white rounded-2xl p-4 sm:p-6 md:p-8 max-w-md w-full max-h-[90vh] overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            <h3 className="text-2xl font-bold mb-6 text-center">Add New Item</h3>
-            <div className="space-y-4">
+            <h3 className="text-xl sm:text-2xl font-bold mb-4 sm:mb-6 text-center">Add New Item</h3>
+            <div className="space-y-3 sm:space-y-4">
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t('wardrobe.itemName')}</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">{t('wardrobe.itemName')}</label>
                 <input
                   type="text"
                   value={uploadForm.name}
                   onChange={(e) => setUploadForm(prev => ({ ...prev, name: e.target.value }))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="e.g., Blue Denim Jeans"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t('wardrobe.category')}</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">{t('wardrobe.category')}</label>
                 <select 
                   value={uploadForm.category}
                   onChange={(e) => setUploadForm(prev => ({ ...prev, category: e.target.value }))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 >
                   <option value="">Select Category</option>
                   <option value="top">Top</option>
@@ -424,28 +424,28 @@ export default function Wardrobe() {
                 </select>
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t('wardrobe.color')}</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">{t('wardrobe.color')}</label>
                 <input
                   type="text"
                   value={uploadForm.color}
                   onChange={(e) => setUploadForm(prev => ({ ...prev, color: e.target.value }))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="e.g., Blue, Red, Black"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t('wardrobe.brand')}</label>
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">{t('wardrobe.brand')}</label>
                 <input
                   type="text"
                   value={uploadForm.brand}
                   onChange={(e) => setUploadForm(prev => ({ ...prev, brand: e.target.value }))}
-                  className="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                  className="w-full px-3 sm:px-4 py-2 text-sm sm:text-base border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                   placeholder="e.g., Nike, Zara, H&M"
                 />
               </div>
               <div>
-                <label className="block text-sm font-medium text-gray-700 mb-2">{t('wardrobe.selectImage')}</label>
-                <div className="border-2 border-dashed border-gray-300 rounded-lg p-6 text-center">
+                <label className="block text-xs sm:text-sm font-medium text-gray-700 mb-1 sm:mb-2">{t('wardrobe.selectImage')}</label>
+                <div className="border-2 border-dashed border-gray-300 rounded-lg p-4 sm:p-6 text-center">
                   <input
                     type="file"
                     accept="image/*"
@@ -456,32 +456,32 @@ export default function Wardrobe() {
                   <label htmlFor="image-upload" className="cursor-pointer">
                     {uploadForm.image ? (
                       <div>
-                        <span className="text-4xl mb-2 block">📸</span>
-                        <p className="text-gray-600">{uploadForm.image.name}</p>
-                        <p className="text-sm text-gray-500">Click to change</p>
+                        <span className="text-3xl sm:text-4xl mb-2 block">📸</span>
+                        <p className="text-sm sm:text-base text-gray-600 break-all">{uploadForm.image.name}</p>
+                        <p className="text-xs sm:text-sm text-gray-500 mt-1">Click to change</p>
                       </div>
                     ) : (
                       <div>
-                        <span className="text-4xl mb-2 block">📸</span>
-                        <p className="text-gray-600">Click to upload or drag and drop</p>
-                        <p className="text-sm text-gray-500">Our AI will automatically analyze and tag your clothing</p>
+                        <span className="text-3xl sm:text-4xl mb-2 block">📸</span>
+                        <p className="text-xs sm:text-sm text-gray-600">Click to upload or drag and drop</p>
+                        <p className="text-xs text-gray-500 mt-1">Our AI will automatically analyze and tag your clothing</p>
                       </div>
                     )}
                   </label>
                 </div>
               </div>
             </div>
-            <div className="flex gap-4 mt-6">
+            <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 mt-4 sm:mt-6">
               <button
                 onClick={() => setShowUploadModal(false)}
-                className="flex-1 px-6 py-3 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition-all duration-300"
+                className="w-full sm:flex-1 px-4 sm:px-6 py-2.5 sm:py-3 border border-gray-300 text-gray-700 rounded-full hover:bg-gray-50 transition-all duration-300 text-sm sm:text-base"
               >
                 {t('wardrobe.cancel')}
               </button>
               <button 
                 onClick={handleUpload}
                 disabled={uploading || !uploadForm.image}
-                className="flex-1 px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 disabled:opacity-50"
+                className="w-full sm:flex-1 px-4 sm:px-6 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 disabled:opacity-50 text-sm sm:text-base"
               >
                 {uploading ? t('wardrobe.uploading') : t('wardrobe.upload')}
               </button>

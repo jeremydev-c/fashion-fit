@@ -213,18 +213,18 @@ export default function Recommendations() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50">
       <Navigation user={user} />
 
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-4 sm:px-6 py-6 sm:py-12">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-12"
+          className="text-center mb-8 sm:mb-12"
         >
-          <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 sm:mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">
             {t('recommendations.title')}
           </h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-4">{t('recommendations.subtitle')}</p>
-          <p className="text-lg text-gray-500 max-w-xl mx-auto">{t('recommendations.getRecommendations')}</p>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto mb-3 sm:mb-4 px-2">{t('recommendations.subtitle')}</p>
+          <p className="text-sm sm:text-base md:text-lg text-gray-500 max-w-xl mx-auto px-2">{t('recommendations.getRecommendations')}</p>
         </motion.div>
 
         {/* Filter Controls */}
@@ -232,23 +232,23 @@ export default function Recommendations() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.2 }}
-          className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg mb-8"
+          className="bg-white/70 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg mb-6 sm:mb-8"
         >
-          <div className="flex items-center justify-between mb-4">
-            <h2 className="text-xl font-bold text-gray-800 flex items-center">
-              <span className="text-2xl mr-2">🎯</span>
+          <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-4 gap-3">
+            <h2 className="text-lg sm:text-xl font-bold text-gray-800 flex items-center">
+              <span className="text-xl sm:text-2xl mr-2">🎯</span>
               {t('recommendations.filters.title')}
             </h2>
             <button
               onClick={() => setShowFilters(!showFilters)}
-              className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg transition-all duration-300"
+              className="w-full sm:w-auto px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 text-sm sm:text-base"
             >
               {showFilters ? t('recommendations.filters.clear') : t('recommendations.filters.apply')}
             </button>
           </div>
 
           {showFilters && (
-            <div className="grid grid-cols-1 md:grid-cols-4 gap-4 mb-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3 sm:gap-4 mb-4 sm:mb-6">
               <div>
                 <label className="block text-sm font-medium text-gray-700 mb-2">{t('recommendations.filters.occasion')}</label>
                 <select
@@ -326,7 +326,7 @@ export default function Recommendations() {
             <button
               onClick={generateRecommendations}
               disabled={loadingRecommendations}
-              className="px-8 py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
+              className="w-full sm:w-auto px-6 sm:px-8 py-3 sm:py-4 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-base sm:text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed"
             >
               {loadingRecommendations ? (
                 <div className="flex items-center">
@@ -349,42 +349,42 @@ export default function Recommendations() {
             transition={{ delay: 0.4 }}
             className="mb-12"
           >
-            <div className="text-center mb-8">
-              <h2 className="text-2xl font-bold mb-4 flex items-center justify-center">
-                <span className="text-3xl mr-2">✨</span>
+            <div className="text-center mb-6 sm:mb-8">
+              <h2 className="text-xl sm:text-2xl font-bold mb-4 flex items-center justify-center">
+                <span className="text-2xl sm:text-3xl mr-2">✨</span>
                 {t('recommendations.title')}
               </h2>
             </div>
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
               {recommendations.map((outfit, index) => (
                 <motion.div
                   key={index}
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ delay: 0.5 + index * 0.1 }}
-                  className="bg-white/70 backdrop-blur-sm rounded-xl p-6 shadow-lg hover:shadow-xl transition-all duration-300"
+                  className="bg-white/70 backdrop-blur-sm rounded-xl p-4 sm:p-6 shadow-lg hover:shadow-xl transition-all duration-300"
                 >
                   <div className="mb-4">
-                    <h3 className="text-xl font-bold text-gray-800 mb-2">{outfit.outfitName}</h3>
-                    <p className="text-gray-600 text-sm mb-3">{outfit.description}</p>
-                    <div className="flex items-center mb-3">
-                      <span className="text-sm text-gray-500">{t('recommendations.outfit.confidence')}:</span>
-                      <div className="ml-2 flex-1 bg-gray-200 rounded-full h-2">
+                    <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-2 break-words">{outfit.outfitName}</h3>
+                    <p className="text-gray-600 text-xs sm:text-sm mb-3 line-clamp-2">{outfit.description}</p>
+                    <div className="flex flex-col sm:flex-row items-start sm:items-center mb-3 gap-2 sm:gap-0">
+                      <span className="text-xs sm:text-sm text-gray-500 whitespace-nowrap">{t('recommendations.outfit.confidence')}:</span>
+                      <div className="w-full sm:w-auto sm:ml-2 sm:flex-1 bg-gray-200 rounded-full h-2">
                         <div 
                           className="bg-gradient-to-r from-purple-500 to-pink-500 h-2 rounded-full transition-all duration-300"
                           style={{ width: `${(outfit.confidence || 0.8) * 100}%` }}
                         ></div>
                       </div>
-                      <span className="text-sm text-gray-500 ml-2">{Math.round((outfit.confidence || 0.8) * 100)}%</span>
+                      <span className="text-xs sm:text-sm text-gray-500 sm:ml-2">{Math.round((outfit.confidence || 0.8) * 100)}%</span>
                     </div>
                   </div>
 
                   <div className="mb-4">
-                    <h4 className="font-semibold text-gray-700 mb-2">{t('recommendations.outfit.items')}:</h4>
+                    <h4 className="text-sm sm:text-base font-semibold text-gray-700 mb-2">{t('recommendations.outfit.items')}:</h4>
                     <div className="space-y-2">
                       {outfit.items.map((item, itemIndex) => (
-                        <div key={itemIndex} className="flex items-center space-x-3 p-2 bg-gray-50 rounded-lg">
-                          <div className="w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
+                        <div key={itemIndex} className="flex items-center space-x-2 sm:space-x-3 p-2 bg-gray-50 rounded-lg">
+                          <div className="w-8 h-8 sm:w-10 sm:h-10 flex-shrink-0 bg-gray-200 rounded-lg flex items-center justify-center overflow-hidden">
                             {item.imageUrl ? (
                               <img 
                                 src={item.imageUrl} 
@@ -392,12 +392,12 @@ export default function Recommendations() {
                                 className="w-full h-full object-cover"
                               />
                             ) : (
-                              <span className="text-sm">👕</span>
+                              <span className="text-xs sm:text-sm">👕</span>
                             )}
                           </div>
-                          <div className="flex-1">
-                            <p className="text-sm font-medium text-gray-800">{item.name}</p>
-                            <p className="text-xs text-gray-500 capitalize">{item.category} • {item.color}</p>
+                          <div className="flex-1 min-w-0">
+                            <p className="text-xs sm:text-sm font-medium text-gray-800 truncate">{item.name}</p>
+                            <p className="text-xs text-gray-500 capitalize truncate">{item.category} • {item.color}</p>
                           </div>
                         </div>
                       ))}
@@ -405,23 +405,23 @@ export default function Recommendations() {
                   </div>
 
                   {outfit.styleNotes && (
-                    <div className="mb-4 p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
-                      <p className="text-sm text-gray-700">
+                    <div className="mb-4 p-2 sm:p-3 bg-gradient-to-r from-purple-50 to-pink-50 rounded-lg">
+                      <p className="text-xs sm:text-sm text-gray-700">
                         <span className="font-semibold">💡 {t('stylist.tips.title')}:</span> {outfit.styleNotes}
                       </p>
                     </div>
                   )}
 
                   {/* Smart AI Learning Features */}
-                  <div className="mb-4">
-                    <div className="flex items-center justify-between mb-2">
-                      <span className="text-sm font-medium text-gray-700">{t('recommendations.outfit.rateOutfit')}:</span>
-                      <div className="flex space-x-1">
+                  <div className="mb-4 space-y-3">
+                    <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-2">
+                      <span className="text-xs sm:text-sm font-medium text-gray-700">{t('recommendations.outfit.rateOutfit')}:</span>
+                      <div className="flex space-x-1 justify-center sm:justify-end">
                         {[1, 2, 3, 4, 5].map((star) => (
                           <button
                             key={star}
                             onClick={() => rateOutfit(outfit._id || `outfit_${index}`, star)}
-                            className="text-2xl hover:scale-110 transition-transform duration-200"
+                            className="text-xl sm:text-2xl hover:scale-110 transition-transform duration-200"
                           >
                             ⭐
                           </button>
@@ -429,31 +429,28 @@ export default function Recommendations() {
                       </div>
                     </div>
                     
-                    <div className="flex space-x-2 mb-2">
+                    <div className="flex flex-wrap gap-2">
                       <button
                         onClick={() => provideFeedback(outfit._id || `outfit_${index}`, 'love')}
-                        className="px-3 py-1 bg-red-100 text-red-600 rounded-full text-sm hover:bg-red-200 transition-colors"
+                        className="flex-1 sm:flex-none px-3 py-1.5 sm:py-1 bg-red-100 text-red-600 rounded-full text-xs sm:text-sm hover:bg-red-200 transition-colors"
                       >
                         ❤️ {t('recommendations.outfit.love')}
                       </button>
                       <button
                         onClick={() => provideFeedback(outfit._id || `outfit_${index}`, 'not_my_style')}
-                        className="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-sm hover:bg-gray-200 transition-colors"
+                        className="flex-1 sm:flex-none px-3 py-1.5 sm:py-1 bg-gray-100 text-gray-600 rounded-full text-xs sm:text-sm hover:bg-gray-200 transition-colors"
                       >
                         👎 {t('recommendations.outfit.notMyStyle')}
                       </button>
-                    </div>
-                    
-                    <div className="flex space-x-2">
                       <button
                         onClick={() => trackWear(outfit._id || `outfit_${index}`, filters.occasion, filters.weather)}
-                        className="px-3 py-1 bg-blue-100 text-blue-600 rounded-full text-sm hover:bg-blue-200 transition-colors"
+                        className="flex-1 sm:flex-none px-3 py-1.5 sm:py-1 bg-blue-100 text-blue-600 rounded-full text-xs sm:text-sm hover:bg-blue-200 transition-colors"
                       >
                         👕 {t('recommendations.outfit.woreThis')}
                       </button>
                       <button
                         onClick={() => provideFeedback(outfit._id || `outfit_${index}`, 'like')}
-                        className="px-3 py-1 bg-green-100 text-green-600 rounded-full text-sm hover:bg-green-200 transition-colors"
+                        className="flex-1 sm:flex-none px-3 py-1.5 sm:py-1 bg-green-100 text-green-600 rounded-full text-xs sm:text-sm hover:bg-green-200 transition-colors"
                       >
                         👍 {t('recommendations.outfit.like')}
                       </button>
@@ -462,7 +459,7 @@ export default function Recommendations() {
 
                   <button
                     onClick={() => saveOutfit(outfit)}
-                    className="w-full px-4 py-2 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hover:shadow-lg transition-all duration-300 font-medium"
+                    className="w-full px-4 py-2 sm:py-2.5 bg-gradient-to-r from-green-500 to-blue-500 text-white rounded-lg hover:shadow-lg transition-all duration-300 font-medium text-sm sm:text-base"
                   >
                     💾 {t('recommendations.outfit.saveToFavorites')}
                   </button>
@@ -485,9 +482,9 @@ export default function Recommendations() {
             <div className="w-24 h-24 bg-gradient-to-r from-purple-100 to-pink-100 rounded-full flex items-center justify-center mx-auto mb-6">
               <span className="text-4xl">🤖</span>
             </div>
-            <h3 className="text-2xl font-bold text-gray-700 mb-4">{t('recommendations.noRecommendations')}</h3>
-            <p className="text-gray-600 mb-6 max-w-md mx-auto">{t('recommendations.uploadItems')}</p>
-            <div className="flex items-center justify-center space-x-4 text-sm text-gray-500">
+            <h3 className="text-xl sm:text-2xl font-bold text-gray-700 mb-4 px-4">{t('recommendations.noRecommendations')}</h3>
+            <p className="text-sm sm:text-base text-gray-600 mb-6 max-w-md mx-auto px-4">{t('recommendations.uploadItems')}</p>
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-3 sm:gap-4 text-xs sm:text-sm text-gray-500 px-4">
               <span className="flex items-center">
                 <span className="text-green-500 mr-1">✓</span>
                 {t('recommendations.getRecommendations')}

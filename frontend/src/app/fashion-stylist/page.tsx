@@ -135,8 +135,8 @@ export default function FashionStylist() {
           className="text-center"
         >
           <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
-          <h2 className="text-2xl font-bold text-gray-800">Getting your stylist ready... ✨</h2>
-          <p className="text-sm text-gray-500 mt-2">Just a moment while we prepare everything!</p>
+          <h2 className="text-xl sm:text-2xl font-bold text-gray-800 px-4">Getting your stylist ready... ✨</h2>
+          <p className="text-xs sm:text-sm text-gray-500 mt-2 px-4">Just a moment while we prepare everything!</p>
         </motion.div>
       </div>
     );
@@ -152,13 +152,13 @@ export default function FashionStylist() {
             initial={{ opacity: 0, y: -20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
-            className="text-center p-8 bg-white rounded-2xl shadow-xl"
+            className="text-center p-4 sm:p-8 bg-white rounded-2xl shadow-xl mx-4"
           >
-            <h2 className="text-3xl font-bold text-red-600 mb-4">Hey there! 👋</h2>
-            <p className="text-lg text-gray-700 mb-6">We'd love to introduce you to your AI Fashion Stylist! Please sign in so we can start styling together. 💫</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-red-600 mb-3 sm:mb-4">Hey there! 👋</h2>
+            <p className="text-sm sm:text-base md:text-lg text-gray-700 mb-4 sm:mb-6 px-2">We'd love to introduce you to your AI Fashion Stylist! Please sign in so we can start styling together. 💫</p>
             <a
               href="/"
-              className="px-8 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"
+              className="inline-block px-6 sm:px-8 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white text-sm sm:text-base md:text-lg font-semibold rounded-full hover:shadow-xl transition-all duration-300 transform hover:scale-105"
             >
               {t('auth.goHome')}
             </a>
@@ -172,14 +172,14 @@ export default function FashionStylist() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50">
       <Navigation user={user} />
 
-      <main className="container mx-auto px-6 py-8">
+      <main className="container mx-auto px-4 sm:px-6 py-6 sm:py-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
-          className="text-center mb-8"
+          className="text-center mb-6 sm:mb-8"
         >
-          <h1 className="text-4xl font-bold mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">{t('stylist.title')}</h1>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-3 sm:mb-4 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent px-2">{t('stylist.title')}</h1>
+          <p className="text-base sm:text-lg md:text-xl text-gray-600 max-w-2xl mx-auto px-2">
             {t('stylist.subtitle')}
           </p>
         </motion.div>
@@ -192,7 +192,7 @@ export default function FashionStylist() {
           className="bg-white/70 backdrop-blur-sm rounded-2xl shadow-xl overflow-hidden"
         >
           {/* Chat Messages */}
-          <div className="h-96 overflow-y-auto p-6 space-y-4">
+          <div className="h-80 sm:h-96 overflow-y-auto p-4 sm:p-6 space-y-3 sm:space-y-4">
             {messages.map((message) => (
               <motion.div
                 key={message.id}
@@ -201,14 +201,14 @@ export default function FashionStylist() {
                 className={`flex ${message.role === 'user' ? 'justify-end' : 'justify-start'}`}
               >
                 <div
-                  className={`max-w-xs lg:max-w-md px-4 py-3 rounded-2xl ${
+                  className={`max-w-[85%] sm:max-w-xs lg:max-w-md px-3 sm:px-4 py-2 sm:py-3 rounded-2xl ${
                     message.role === 'user'
                       ? 'bg-gradient-to-r from-purple-600 to-pink-600 text-white'
                       : 'bg-gray-100 text-gray-800'
                   }`}
                 >
-                  <p className="text-sm whitespace-pre-wrap">{message.content}</p>
-                  <p className={`text-xs mt-2 ${
+                  <p className="text-xs sm:text-sm whitespace-pre-wrap break-words">{message.content}</p>
+                  <p className={`text-xs mt-1 sm:mt-2 ${
                     message.role === 'user' ? 'text-purple-100' : 'text-gray-500'
                   }`}>
                     {message.timestamp.toLocaleTimeString()}
@@ -236,15 +236,15 @@ export default function FashionStylist() {
           </div>
 
           {/* Chat Input */}
-          <div className="border-t border-gray-200 p-4">
-            <div className="flex space-x-4">
+          <div className="border-t border-gray-200 p-3 sm:p-4">
+            <div className="flex gap-2 sm:gap-4">
               <input
                 type="text"
                 value={inputMessage}
                 onChange={(e) => setInputMessage(e.target.value)}
                 onKeyPress={handleKeyPress}
                 placeholder={t('stylist.placeholder')}
-                className="flex-1 px-4 py-3 border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
+                className="flex-1 px-3 sm:px-4 py-2 sm:py-3 text-sm sm:text-base border border-gray-300 rounded-full focus:outline-none focus:ring-2 focus:ring-purple-500 focus:border-transparent"
                 disabled={isLoading}
               />
               <motion.button
@@ -252,7 +252,7 @@ export default function FashionStylist() {
                 whileTap={{ scale: 0.95 }}
                 onClick={sendMessage}
                 disabled={!inputMessage.trim() || isLoading}
-                className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+                className="px-4 sm:px-6 py-2 sm:py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-full hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm sm:text-base flex-shrink-0"
               >
                 {isLoading ? '...' : t('stylist.send')}
               </motion.button>
@@ -265,10 +265,10 @@ export default function FashionStylist() {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ delay: 0.5 }}
-          className="mt-8"
+          className="mt-6 sm:mt-8"
         >
-          <h3 className="text-xl font-bold text-gray-800 mb-4 text-center">{t('stylist.examples.title')}</h3>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+          <h3 className="text-lg sm:text-xl font-bold text-gray-800 mb-3 sm:mb-4 text-center px-2">{t('stylist.examples.title')}</h3>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3 sm:gap-4">
             {[
               "✨ What colors make me glow?",
               "👗 How do I style this for work?",
@@ -282,9 +282,9 @@ export default function FashionStylist() {
                 whileHover={{ scale: 1.02 }}
                 whileTap={{ scale: 0.98 }}
                 onClick={() => setInputMessage(question)}
-                className="p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-gray-200 hover:border-purple-300 hover:bg-white/70 transition-all duration-300 text-left"
+                className="p-3 sm:p-4 bg-white/50 backdrop-blur-sm rounded-xl border border-gray-200 hover:border-purple-300 hover:bg-white/70 transition-all duration-300 text-left"
               >
-                <p className="text-sm text-gray-700">{question}</p>
+                <p className="text-xs sm:text-sm text-gray-700">{question}</p>
               </motion.button>
             ))}
           </div>

@@ -135,23 +135,23 @@ export default function Profile() {
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50">
       <Navigation user={user} />
       
-      <main className="container mx-auto px-6 py-12">
+      <main className="container mx-auto px-4 sm:px-6 py-6 sm:py-12">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           className="max-w-4xl mx-auto"
         >
-          <h1 className="text-4xl font-bold mb-8 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">
+          <h1 className="text-3xl sm:text-4xl font-bold mb-6 sm:mb-8 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent px-2">
             {t('profile.title')}
           </h1>
 
-          <div className="bg-white rounded-lg shadow-lg p-8">
-            <div className="flex items-center gap-6 mb-8">
-              <div className="relative">
+          <div className="bg-white rounded-lg shadow-lg p-4 sm:p-6 md:p-8">
+            <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 sm:gap-6 mb-6 sm:mb-8">
+              <div className="relative flex-shrink-0">
                 <img
                   src={previewPicture || user.profilePicture || '/default-avatar.png'}
                   alt={user.name || 'Profile'}
-                  className="w-24 h-24 rounded-full object-cover border-4 border-purple-200"
+                  className="w-20 h-20 sm:w-24 sm:h-24 rounded-full object-cover border-4 border-purple-200"
                 />
                 {uploadingPicture && (
                   <div className="absolute inset-0 flex items-center justify-center bg-black bg-opacity-50 rounded-full">
@@ -192,19 +192,19 @@ export default function Profile() {
                     </div>
                   </div>
                 ) : (
-                  <div>
-                    <h2 className="text-2xl font-bold text-gray-800">{user.name}</h2>
-                    <p className="text-gray-600">{user.email}</p>
+                  <div className="text-center sm:text-left">
+                    <h2 className="text-xl sm:text-2xl font-bold text-gray-800">{user.name}</h2>
+                    <p className="text-sm sm:text-base text-gray-600 break-all">{user.email}</p>
                   </div>
                 )}
               </div>
             </div>
 
-            <div className="space-y-4">
+            <div className="space-y-4 sm:space-y-6">
               {/* Profile Picture Upload */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-700 mb-4">Profile Picture</h3>
-                <div className="flex items-center gap-4">
+                <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-3 sm:mb-4">Profile Picture</h3>
+                <div className="flex flex-col sm:flex-row items-start sm:items-center gap-3 sm:gap-4">
                   <div>
                     <input
                       id="picture-input"
@@ -215,40 +215,40 @@ export default function Profile() {
                     />
                     <label
                       htmlFor="picture-input"
-                      className="cursor-pointer inline-block px-4 py-2 bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors"
+                      className="cursor-pointer inline-block w-full sm:w-auto px-4 py-2 text-center bg-gray-100 text-gray-700 rounded-lg hover:bg-gray-200 transition-colors text-sm sm:text-base"
                     >
                       Choose Image
                     </label>
                   </div>
                   {previewPicture && (
-                    <div className="flex gap-2">
+                    <div className="flex flex-col sm:flex-row gap-2 w-full sm:w-auto">
                       <button
                         onClick={handlePictureUpload}
                         disabled={uploadingPicture}
-                        className="px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
+                        className="flex-1 sm:flex-none px-4 py-2 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed text-sm"
                       >
                         {uploadingPicture ? 'Uploading...' : 'Upload'}
                       </button>
                       <button
                         onClick={handleCancelPicture}
                         disabled={uploadingPicture}
-                        className="px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all duration-300 disabled:opacity-50 text-sm"
+                        className="flex-1 sm:flex-none px-4 py-2 bg-gray-200 text-gray-700 rounded-lg hover:bg-gray-300 transition-all duration-300 disabled:opacity-50 text-sm"
                       >
                         Cancel
                       </button>
                     </div>
                   )}
                 </div>
-                <p className="text-sm text-gray-500 mt-2">Max file size: 5MB. Supported formats: JPG, PNG, GIF</p>
+                <p className="text-xs sm:text-sm text-gray-500 mt-2">Max file size: 5MB. Supported formats: JPG, PNG, GIF</p>
               </div>
 
               {/* Account Information */}
               <div>
-                <h3 className="text-lg font-semibold text-gray-700 mb-2">Account Information</h3>
-                <div className="bg-gray-50 rounded-lg p-4 space-y-2">
-                  <p><span className="font-medium">Email:</span> {user.email}</p>
-                  <p><span className="font-medium">Name:</span> {user.name}</p>
-                  {user._id && <p><span className="font-medium">User ID:</span> {user._id}</p>}
+                <h3 className="text-base sm:text-lg font-semibold text-gray-700 mb-2 sm:mb-3">Account Information</h3>
+                <div className="bg-gray-50 rounded-lg p-3 sm:p-4 space-y-2">
+                  <p className="text-sm sm:text-base break-all"><span className="font-medium">Email:</span> {user.email}</p>
+                  <p className="text-sm sm:text-base"><span className="font-medium">Name:</span> {user.name}</p>
+                  {user._id && <p className="text-xs sm:text-sm break-all"><span className="font-medium">User ID:</span> {user._id}</p>}
                 </div>
               </div>
 
@@ -256,7 +256,7 @@ export default function Profile() {
                 <div className="pt-4">
                   <button
                     onClick={handleEdit}
-                    className="px-6 py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg transition-all duration-300"
+                    className="w-full sm:w-auto px-6 py-2.5 sm:py-3 bg-gradient-to-r from-purple-600 to-pink-600 text-white rounded-lg hover:shadow-lg transition-all duration-300 text-sm sm:text-base"
                   >
                     {t('profile.edit')}
                   </button>
