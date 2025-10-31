@@ -109,14 +109,14 @@ export default function Wardrobe() {
     }
   };
 
-  const editItem = (item) => {
+  const editItem = (item: any) => {
     const newCategory = prompt(`Current category: ${item.category}\n\nEnter new category (top, bottom, dress, shoes, accessories, outerwear, underwear):`, item.category);
     if (newCategory && newCategory !== item.category) {
       updateItemCategory(item._id, newCategory);
     }
   };
 
-  const updateItemCategory = async (itemId, newCategory) => {
+  const updateItemCategory = async (itemId: string, newCategory: string) => {
     const token = localStorage.getItem('fashionFitToken');
     if (!token) return; // No point trying without token
     
