@@ -102,12 +102,13 @@ export default function FashionStylist() {
       } else {
         throw new Error(data.error || 'Failed to get fashion advice');
       }
-    } catch (error) {
-      console.error('Error sending message:', error);
+    } catch (err) {
+      console.error('Error sending message:', err);
+      const errorMsg = err instanceof Error ? err.message : 'An unexpected error occurred';
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'stylist',
-        content: `Oops! 😅 I ran into a little hiccup: ${error.message}\n\nDon't worry though - just give me another moment and try asking again. Sometimes even AI stylists need a quick break! ☕`,
+        content: `Oops! 😅 I ran into a little hiccup: ${errorMsg}\n\nDon't worry though - just give me another moment and try asking again. Sometimes even AI stylists need a quick break! ☕`,
         timestamp: new Date()
       };
       setMessages(prev => [...prev, errorMessage]);
