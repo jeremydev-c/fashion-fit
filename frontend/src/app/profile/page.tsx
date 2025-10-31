@@ -248,7 +248,7 @@ export default function Profile() {
                 <div className="bg-gray-50 rounded-lg p-4 space-y-2">
                   <p><span className="font-medium">Email:</span> {user.email}</p>
                   <p><span className="font-medium">Name:</span> {user.name}</p>
-                  {user.id && <p><span className="font-medium">User ID:</span> {user.id}</p>}
+                  {user._id && <p><span className="font-medium">User ID:</span> {user._id}</p>}
                 </div>
               </div>
 
