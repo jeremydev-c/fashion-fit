@@ -17,6 +17,10 @@ interface WardrobeItem {
   color: string;
   brand?: string;
   imageUrl?: string;
+  tags?: string[];
+  aiAnalysis?: {
+    aiSuggestedCategory?: string;
+  };
 }
 
 export default function Wardrobe() {
