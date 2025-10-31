@@ -1,13 +1,13 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, Suspense } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Navigation from '../../components/Navigation';
 import { useTranslations } from '../../hooks/useTranslations';
 import { useAuth, User } from '../../hooks/useAuth';
 
-export default function Dashboard() {
+function DashboardContent() {
   const { user, loading, login } = useAuth();
   const { t } = useTranslations();
   const searchParams = useSearchParams();
@@ -56,11 +56,10 @@ export default function Dashboard() {
               Go to Home
             </a>
           </motion.div>
-        </div>
       </div>
-    );
-  }
-
+    </div>
+  );
+  
   // TypeScript guard: user is definitely User here
   const currentUser = user as User;
 
@@ -290,5 +289,20 @@ export default function Dashboard() {
         </motion.div>
       </main>
     </div>
+  );
+}
+
+export default function Dashboard() {
+  return (
+    <Suspense fallback={
+      <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="w-16 h-16 border-4 border-purple-600 border-t-transparent rounded-full animate-spin mx-auto mb-6"></div>
+          <h2 className="text-2xl font-bold text-gray-800">Loading...</h2>
+        </div>
+      </div>
+    }>
+      <DashboardContent />
+    </Suspense>
   );
 }
