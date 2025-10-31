@@ -18,7 +18,13 @@ export default function Wardrobe() {
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [showSmartCamera, setShowSmartCamera] = useState(false);
-  const [uploadForm, setUploadForm] = useState({
+  const [uploadForm, setUploadForm] = useState<{
+    name: string;
+    category: string;
+    color: string;
+    brand: string;
+    image: File | null;
+  }>({
     name: '',
     category: '',
     color: '',
