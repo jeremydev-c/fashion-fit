@@ -18,6 +18,7 @@ interface OutfitRecommendation {
   description: string;
   confidence?: number;
   items: OutfitItem[];
+  styleNotes?: string;
 }
 
 export default function Recommendations() {
