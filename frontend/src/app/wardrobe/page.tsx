@@ -32,7 +32,8 @@ export default function Wardrobe() {
     }
   }, [token]);
 
-  const fetchWardrobeItems = async (token) => {
+  const fetchWardrobeItems = async (token: string | null) => {
+    if (!token) return;
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
       const response = await fetch(`${apiUrl}/api/wardrobe`, {
