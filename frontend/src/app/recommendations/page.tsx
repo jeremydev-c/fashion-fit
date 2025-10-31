@@ -14,6 +14,7 @@ interface OutfitItem {
 }
 
 interface OutfitRecommendation {
+  _id?: string;
   outfitName: string;
   description: string;
   confidence?: number;
