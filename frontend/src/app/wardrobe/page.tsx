@@ -144,7 +144,7 @@ export default function Wardrobe() {
     }
   };
 
-  const deleteItem = async (itemId) => {
+  const deleteItem = async (itemId: string) => {
     if (!confirm('Wait! 👋\n\nAre you sure you want to remove this item from your wardrobe? This can\'t be undone, but we totally get it if it\'s time to say goodbye!')) return;
     
     const token = localStorage.getItem('fashionFitToken');
