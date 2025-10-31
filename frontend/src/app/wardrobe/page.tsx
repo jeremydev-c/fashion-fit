@@ -90,7 +90,8 @@ export default function Wardrobe() {
     formData.append('brand', uploadForm.brand);
 
     try {
-      const response = await fetch('http://localhost:5000/api/wardrobe/upload', {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/wardrobe/upload`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`
