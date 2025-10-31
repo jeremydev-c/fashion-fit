@@ -134,7 +134,7 @@ export default function PhotoLibraryScanner({ onPhotosSelected, onClose }: Photo
                       Confidence: {Math.round(result.confidence * 100)}%
                       {result.detectedItems.length > 0 && (
                         <div className="mt-1">
-                          Items: {result.detectedItems.map(item => item.type).join(', ')}
+                          Items: {result.detectedItems.map((item: any) => item.type).join(', ')}
                         </div>
                       )}
                     </div>
