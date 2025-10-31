@@ -1,9 +1,17 @@
 import { useState, useEffect } from 'react';
 
+// User type definition
+export interface User {
+  _id: string;
+  name: string;
+  email: string;
+  profilePicture?: string;
+}
+
 // Custom hook to handle authentication state
 // Took me a while to get token validation right - kept having issues with stale tokens
 export const useAuth = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState<User | null>(null);
   const [loading, setLoading] = useState(true);
   const [token, setToken] = useState<string | null>(null);
 

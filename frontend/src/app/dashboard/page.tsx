@@ -73,7 +73,7 @@ export default function Dashboard() {
                   className="text-center mb-12"
                 >
                   <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">
-                    {t('common.welcome', { name: user?.name || 'Fashion Icon' })}
+                    {t('common.welcome', { name: user.name || 'Fashion Icon' })}
                   </h1>
                   <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-4">
                     🎉 {t('common.subtitle')}
