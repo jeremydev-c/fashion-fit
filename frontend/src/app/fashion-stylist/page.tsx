@@ -51,47 +51,48 @@ export default function FashionStylist() {
       console.log('User:', user?.name);
       console.log('Token:', token ? 'Present' : 'Missing');
       
-      // Try the Next.js API route first, fallback to direct backend
-      let response;
-      try {
-        console.log('Trying Next.js API route...');
-        response = await fetch('/api/recommendations/fashion-stylist', {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify({
-            message: inputMessage,
-            userName: user?.name || 'Fashion Icon'
-          })
-        });
-      } catch (apiError) {
-        console.log('API route failed, trying direct backend connection:', apiError);
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
-        response = await fetch(`${apiUrl}/api/recommendations/fashion-stylist`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-            'Authorization': `Bearer ${token}`
-          },
-          body: JSON.stringify({
-            message: inputMessage,
-            userName: user?.name || 'Fashion Icon'
-          })
-        });
+      // Use backend API directly (Next.js API route not needed)
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      
+      if (!token) {
+        throw new Error('Authentication required. Please sign in again.');
       }
+      
+      const response = await fetch(`${apiUrl}/api/recommendations/fashion-stylist`, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        body: JSON.stringify({
+          message: inputMessage,
+          userName: user?.name || 'Fashion Icon'
+        })
+      });
 
       if (!response.ok) {
         console.error('Response not OK:', response.status, response.statusText);
-        const errorData = await response.json().catch(() => ({ error: 'Unknown error' }));
-        throw new Error(errorData.error || `HTTP ${response.status}: ${response.statusText}`);
+        let errorData;
+        try {
+          errorData = await response.json();
+        } catch {
+          const text = await response.text();
+          throw new Error(`Backend error (${response.status}): ${text.substring(0, 100) || response.statusText}`);
+        }
+        throw new Error(errorData.error || errorData.details || `HTTP ${response.status}: ${response.statusText}`);
       }
 
-      const data = await response.json();
+      let data;
+      try {
+        data = await response.json();
+      } catch (parseError) {
+        console.error('Failed to parse response:', parseError);
+        throw new Error('Received invalid response from server. Please try again.');
+      }
+      
       console.log('Response data:', data);
 
-      if (data.success) {
+      if (data.success && data.stylistResponse) {
         const stylistMessage: Message = {
           id: (Date.now() + 1).toString(),
           role: 'stylist',
@@ -100,11 +101,25 @@ export default function FashionStylist() {
         };
         setMessages(prev => [...prev, stylistMessage]);
       } else {
-        throw new Error(data.error || 'Failed to get fashion advice');
+        throw new Error(data.error || 'Failed to get fashion advice. The stylist may be temporarily unavailable.');
       }
     } catch (err) {
       console.error('Error sending message:', err);
-      const errorMsg = err instanceof Error ? err.message : 'An unexpected error occurred';
+      let errorMsg = 'An unexpected error occurred';
+      
+      if (err instanceof Error) {
+        errorMsg = err.message;
+        
+        // Provide more helpful error messages
+        if (err.message.includes('Failed to fetch') || err.message.includes('NetworkError')) {
+          errorMsg = 'Cannot connect to the server. Please check your internet connection and ensure the backend is running.';
+        } else if (err.message.includes('401') || err.message.includes('Unauthorized')) {
+          errorMsg = 'Authentication failed. Please sign in again.';
+        } else if (err.message.includes('Authentication required')) {
+          errorMsg = 'Please sign in to use the Fashion Stylist.';
+        }
+      }
+      
       const errorMessage: Message = {
         id: (Date.now() + 1).toString(),
         role: 'stylist',
