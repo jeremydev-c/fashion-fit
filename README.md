@@ -17,6 +17,10 @@
 [![TypeScript](https://img.shields.io/badge/100%25-TypeScript-blue?style=for-the-badge)](https://www.typescriptlang.org)
 [![Status](https://img.shields.io/badge/Status-Production%20Ready-success?style=for-the-badge)]()
 
+### 🌐 **[Live Application](https://fashion-fit-vert.vercel.app)**
+
+**Experience Fashion Fit now!** The platform is live and ready to transform your wardrobe management. 🚀
+
 ---
 
 ## 🚀 **Innovation at a Glance**
@@ -400,7 +404,7 @@ Comprehensive technical documentation available:
 
 - 📧 Email: nduatijeremy7@gmail.com
 - 💼 LinkedIn: [Add LinkedIn]
-- 🌐 Portfolio: [Add portfolio URL]
+- 🌐 **Live App**: [fashion-fit-vert.vercel.app](https://fashion-fit-vert.vercel.app)
 - 🐙 GitHub: [@jeremydev-c](https://github.com/jeremydev-c)
 
 ---
