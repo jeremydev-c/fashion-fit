@@ -10,11 +10,20 @@ import SmartCamera from '../../components/SmartCamera';
 
 import { useTranslations } from '../../hooks/useTranslations';
 
+interface WardrobeItem {
+  _id: string;
+  name: string;
+  category: string;
+  color: string;
+  brand?: string;
+  imageUrl?: string;
+}
+
 export default function Wardrobe() {
   const { user, loading, token } = useAuth();
   const { t } = useTranslations();
   const enableSmartCamera = process.env.NEXT_PUBLIC_ENABLE_SMART_CAMERA === 'true';
-  const [wardrobeItems, setWardrobeItems] = useState([]);
+  const [wardrobeItems, setWardrobeItems] = useState<WardrobeItem[]>([]);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [uploading, setUploading] = useState(false);
   const [showSmartCamera, setShowSmartCamera] = useState(false);
