@@ -5,7 +5,7 @@ import { useSearchParams } from 'next/navigation';
 
 export default function AuthCallback() {
   const [status, setStatus] = useState('Processing authentication...');
-  const [error, setError] = useState(null);
+  const [error, setError] = useState<string | null>(null);
   const searchParams = useSearchParams();
 
   useEffect(() => {
@@ -32,9 +32,9 @@ export default function AuthCallback() {
         } else {
           throw new Error('No token received');
         }
-      } catch (error) {
-        console.error('Auth callback error:', error);
-        setError(error.message);
+      } catch (err) {
+        console.error('Auth callback error:', err);
+        setError(err instanceof Error ? err.message : 'An unexpected error occurred');
         setStatus('Authentication failed');
         setTimeout(() => {
           window.location.href = '/?error=auth_failed';
