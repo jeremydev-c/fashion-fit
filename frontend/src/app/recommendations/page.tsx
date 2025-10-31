@@ -20,9 +20,10 @@ export default function Recommendations() {
   const [showFilters, setShowFilters] = useState(false);
 
 
-  const rateOutfit = async (outfitId, rating) => {
+  const rateOutfit = async (outfitId: string, rating: number) => {
     try {
-      const response = await fetch(`http://localhost:5000/api/recommendations/outfits/${outfitId}/rate`, {
+      const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
+      const response = await fetch(`${apiUrl}/api/recommendations/outfits/${outfitId}/rate`, {
         method: 'POST',
         headers: {
           'Authorization': `Bearer ${token}`,
@@ -43,7 +44,7 @@ export default function Recommendations() {
     }
   };
 
-  const provideFeedback = async (outfitId, feedback) => {
+  const provideFeedback = async (outfitId: string, feedback: string) => {
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
       const response = await fetch(`${apiUrl}/api/recommendations/outfits/${outfitId}/feedback`, {
@@ -67,7 +68,7 @@ export default function Recommendations() {
     }
   };
 
-  const trackWear = async (outfitId, occasion, weather) => {
+  const trackWear = async (outfitId: string, occasion: string, weather: string) => {
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
       const response = await fetch(`${apiUrl}/api/recommendations/outfits/${outfitId}/wear`, {
@@ -127,7 +128,7 @@ export default function Recommendations() {
     }
   };
 
-  const saveOutfit = async (outfit) => {
+  const saveOutfit = async (outfit: any) => {
     try {
       const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000';
       const response = await fetch(`${apiUrl}/api/recommendations/save`, {
