@@ -5,7 +5,7 @@ import { useEffect, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import Navigation from '../../components/Navigation';
 import { useTranslations } from '../../hooks/useTranslations';
-import { useAuth } from '../../hooks/useAuth';
+import { useAuth, User } from '../../hooks/useAuth';
 
 export default function Dashboard() {
   const { user, loading, login } = useAuth();
@@ -61,9 +61,12 @@ export default function Dashboard() {
     );
   }
 
+  // TypeScript guard: user is definitely User here
+  const currentUser = user as User;
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-purple-50 via-pink-50 to-indigo-50">
-      <Navigation user={user} />
+      <Navigation user={currentUser} />
 
       {/* Dashboard Content */}
       <main className="container mx-auto px-6 py-12">
@@ -73,7 +76,7 @@ export default function Dashboard() {
                   className="text-center mb-12"
                 >
                   <h1 className="text-5xl font-bold mb-6 bg-gradient-to-r from-purple-600 via-pink-600 to-indigo-600 bg-clip-text text-transparent">
-                    {t('common.welcome', { name: user.name || 'Fashion Icon' })}
+                    {t('common.welcome', { name: currentUser.name || 'Fashion Icon' })}
                   </h1>
                   <p className="text-xl text-gray-600 max-w-2xl mx-auto mb-4">
                     🎉 {t('common.subtitle')}

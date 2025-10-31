@@ -35,9 +35,9 @@ export const useAuth = () => {
         if (!res.ok) throw new Error('Auth check failed');
         return res.json();
       })
-      .then(data => {
+      .then((data: { valid: boolean; user?: User }) => {
         if (data.valid && data.user) {
-          setUser(data.user);
+          setUser(data.user as User);
         } else {
           // Token expired or invalid - clean up
           // console.log('Token invalid, clearing...'); // debug line
@@ -74,9 +74,9 @@ export const useAuth = () => {
       }
     })
     .then(res => res.json())
-    .then(data => {
+    .then((data: { valid: boolean; user?: User }) => {
       if (data.valid && data.user) {
-        setUser(data.user);
+        setUser(data.user as User);
       } else {
         // This shouldn't happen but handle it anyway
         console.warn('Login token verification failed');
@@ -101,7 +101,7 @@ export const useAuth = () => {
   };
 
   return {
-    user,
+    user: user as User | null,
     loading,
     token,
     login,
