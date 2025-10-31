@@ -6,7 +6,6 @@ import Navigation from '../../components/Navigation';
 import { useAuth } from '../../hooks/useAuth';
 import Loading from '../../components/Loading';
 import AuthRequired from '../../components/AuthRequired';
-import SmartCamera from '../../components/SmartCamera';
 
 import { useTranslations } from '../../hooks/useTranslations';
 
@@ -26,11 +25,9 @@ interface WardrobeItem {
 export default function Wardrobe() {
   const { user, loading, token } = useAuth();
   const { t } = useTranslations();
-  const enableSmartCamera = process.env.NEXT_PUBLIC_ENABLE_SMART_CAMERA === 'true';
   const [wardrobeItems, setWardrobeItems] = useState<WardrobeItem[]>([]);
   const [showUploadModal, setShowUploadModal] = useState(false);
   const [uploading, setUploading] = useState(false);
-  const [showSmartCamera, setShowSmartCamera] = useState(false);
   const [uploadForm, setUploadForm] = useState<{
     name: string;
     category: string;
@@ -226,13 +223,6 @@ export default function Wardrobe() {
     }
   };
 
-  const handleSmartItemsDetected = async (items: any[]) => {
-    // Handle detected items from Smart Camera
-    console.log('Smart Camera detected items:', items);
-    // For now, just show a success message
-    alert(`Smart Camera detected ${items.length} clothing items!`);
-  };
-
   if (loading) {
     return <Loading message={t('common.loading')} />;
   }
@@ -273,14 +263,6 @@ export default function Wardrobe() {
           >
             + {t('wardrobe.uploadItem')}
           </button>
-          {enableSmartCamera && (
-            <button 
-              onClick={() => setShowSmartCamera(true)}
-              className="px-8 py-4 border-2 border-purple-600 text-purple-600 text-lg font-semibold rounded-full hover:bg-purple-600 hover:text-white transition-all duration-300"
-            >
-              📸 Smart Camera
-            </button>
-          )}
         </motion.div>
 
         {/* Wardrobe Grid */}
@@ -507,13 +489,6 @@ export default function Wardrobe() {
         </motion.div>
       )}
 
-      {/* Smart Camera */}
-      {enableSmartCamera && showSmartCamera && (
-        <SmartCamera
-          onItemsDetected={handleSmartItemsDetected}
-          onClose={() => setShowSmartCamera(false)}
-        />
-      )}
     </div>
   );
 }
