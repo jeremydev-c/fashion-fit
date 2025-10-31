@@ -8,6 +8,23 @@ const { Resend } = require('resend');
 const router = express.Router();
 const resend = new Resend(process.env.RESEND_API_KEY);
 
+// Helper function to get API URL (supports Railway, Render, and local dev)
+function getApiUrl() {
+  if (process.env.RENDER_EXTERNAL_URL) {
+    // Render provides this automatically
+    return process.env.RENDER_EXTERNAL_URL;
+  } else if (process.env.RAILWAY_PUBLIC_DOMAIN) {
+    // Railway provides this
+    return `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`;
+  } else if (process.env.API_URL) {
+    // Manual configuration
+    return process.env.API_URL;
+  } else {
+    // Local development fallback
+    return `http://localhost:${process.env.PORT || 5000}`;
+  }
+}
+
 // Email functions
 const sendWelcomeEmail = async (user) => {
   try {
@@ -57,7 +74,7 @@ const sendWelcomeEmail = async (user) => {
             </div>
             
             <div style="text-align: center; margin: 30px 0;">
-              <a href="http://localhost:3000/dashboard" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">
+              <a href="${process.env.FRONTEND_URL || 'http://localhost:3000'}/dashboard" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">
                 Start Your Style Journey →
               </a>
             </div>
@@ -150,7 +167,7 @@ const sendWelcomeBackEmail = async (user) => {
             </div>
             
             <div style="text-align: center; margin: 30px 0;">
-              <a href="http://localhost:3000/dashboard" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">
+              <a href="${process.env.FRONTEND_URL || 'http://localhost:3000'}/dashboard" style="background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); color: white; padding: 15px 30px; text-decoration: none; border-radius: 25px; font-weight: bold; display: inline-block;">
                 Continue Your Style Journey →
               </a>
             </div>
@@ -196,10 +213,13 @@ const sendWelcomeBackEmail = async (user) => {
 };
 
 // Configure Google OAuth Strategy with better error handling
+// Support both Railway and Render deployment platforms
+const callbackURL = `${getApiUrl()}/api/auth/google/callback`;
+
 passport.use(new GoogleStrategy({
   clientID: process.env.GOOGLE_CLIENT_ID,
   clientSecret: process.env.GOOGLE_CLIENT_SECRET,
-  callbackURL: "http://localhost:5000/api/auth/google/callback"
+  callbackURL: callbackURL
 }, async (accessToken, refreshToken, profile, done) => {
   try {
     console.log('Google OAuth Profile:', profile);
@@ -257,9 +277,11 @@ passport.use(new GoogleStrategy({
 // Direct OAuth test (bypasses Passport)
 router.get('/test-oauth', async (req, res) => {
   try {
+    const callbackURL = `${getApiUrl()}/api/auth/google/callback`;
+    
     const authUrl = `https://accounts.google.com/o/oauth2/v2/auth?` +
       `client_id=${process.env.GOOGLE_CLIENT_ID}&` +
-      `redirect_uri=${encodeURIComponent('http://localhost:5000/api/auth/google/callback')}&` +
+      `redirect_uri=${encodeURIComponent(callbackURL)}&` +
       `scope=profile email&` +
       `response_type=code&` +
       `access_type=offline`;
@@ -275,10 +297,12 @@ router.get('/test-oauth', async (req, res) => {
 
 // Test OAuth configuration with detailed info
 router.get('/test-config', (req, res) => {
+  const callbackURL = `${getApiUrl()}/api/auth/google/callback`;
+  
   res.json({
     clientId: process.env.GOOGLE_CLIENT_ID ? process.env.GOOGLE_CLIENT_ID.substring(0, 20) + '...' : 'Not set',
     clientSecret: process.env.GOOGLE_CLIENT_SECRET ? process.env.GOOGLE_CLIENT_SECRET.substring(0, 10) + '...' : 'Not set',
-    callbackURL: 'http://localhost:5000/api/auth/google/callback',
+    callbackURL: callbackURL,
     message: 'OAuth configuration test - check if clientId matches your Google OAuth client'
   });
 });
@@ -291,8 +315,9 @@ router.get('/google', (req, res, next) => {
 
 router.get('/google/callback', (req, res, next) => {
   console.log('Google OAuth callback received');
+  const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
   passport.authenticate('google', { 
-    failureRedirect: 'http://localhost:3000?error=auth_failed',
+    failureRedirect: `${frontendUrl}?error=auth_failed`,
     session: false 
   })(req, res, next);
 }, (req, res) => {
@@ -309,17 +334,19 @@ router.get('/google/callback', (req, res, next) => {
     console.log('JWT token generated for user:', req.user.email);
     
     // Redirect directly to dashboard with token
-    res.redirect(`http://localhost:3000/dashboard?token=${token}`);
+    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+    res.redirect(`${frontendUrl}/dashboard?token=${token}`);
   } catch (error) {
     console.error('Token generation error:', error);
-    res.redirect('http://localhost:3000?error=auth_failed');
+    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+    res.redirect(`${frontendUrl}?error=auth_failed`);
   }
 });
 
 // Handle the oauth-handler.html redirect
 router.get('/oauth-handler', (req, res) => {
   // This will be called by Google OAuth
-  res.redirect('http://localhost:5000/api/auth/google/callback');
+  res.redirect(`${getApiUrl()}/api/auth/google/callback`);
 });
 
 // Handle OAuth callback from HTML file
@@ -381,6 +408,8 @@ router.post('/exchange-token', async (req, res) => {
     }
 
     // Exchange the authorization code for access token with Google
+    const callbackURL = `${getApiUrl()}/api/auth/google/callback`;
+    
     const tokenResponse = await fetch('https://oauth2.googleapis.com/token', {
       method: 'POST',
       headers: {
@@ -391,7 +420,7 @@ router.post('/exchange-token', async (req, res) => {
         client_secret: process.env.GOOGLE_CLIENT_SECRET,
         code: code,
         grant_type: 'authorization_code',
-        redirect_uri: 'http://localhost:5000/api/auth/google/callback'
+        redirect_uri: callbackURL
       })
     });
 
