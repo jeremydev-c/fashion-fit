@@ -51,7 +51,7 @@ export default function Wardrobe() {
   };
 
   const handleImageUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
-    const file = event.target.files[0];
+    const file = event.target.files?.[0];
     if (file) {
       setUploadForm(prev => ({ ...prev, image: file }));
     }
