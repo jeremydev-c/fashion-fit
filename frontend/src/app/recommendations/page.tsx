@@ -6,10 +6,24 @@ import Navigation from '../../components/Navigation';
 import { useAuth } from '../../hooks/useAuth';
 import { useTranslations } from '../../hooks/useTranslations';
 
+interface OutfitItem {
+  name: string;
+  category: string;
+  color: string;
+  imageUrl?: string;
+}
+
+interface OutfitRecommendation {
+  outfitName: string;
+  description: string;
+  confidence?: number;
+  items: OutfitItem[];
+}
+
 export default function Recommendations() {
   const { user, loading, token } = useAuth();
   const { t } = useTranslations();
-  const [recommendations, setRecommendations] = useState([]);
+  const [recommendations, setRecommendations] = useState<OutfitRecommendation[]>([]);
   const [loadingRecommendations, setLoadingRecommendations] = useState(false);
   const [filters, setFilters] = useState({
     occasion: 'casual',
