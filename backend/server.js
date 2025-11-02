@@ -117,15 +117,39 @@ app.use((error, req, res, next) => {
   res.status(500).json({ error: 'Internal server error' });
 });
 
+// Helper function to get actual API URL (same as in auth.js)
+function getApiUrl() {
+  // Render automatically sets RENDER_EXTERNAL_URL
+  if (process.env.RENDER_EXTERNAL_URL) {
+    return process.env.RENDER_EXTERNAL_URL;
+  }
+  // Railway automatically sets RAILWAY_PUBLIC_DOMAIN
+  if (process.env.RAILWAY_PUBLIC_DOMAIN) {
+    return `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`;
+  }
+  // Manual API_URL configuration
+  if (process.env.API_URL) {
+    let apiUrl = process.env.API_URL.trim();
+    if (!apiUrl.startsWith('http://') && !apiUrl.startsWith('https://')) {
+      apiUrl = `https://${apiUrl}`;
+    }
+    return apiUrl;
+  }
+  // Local development fallback
+  return `http://localhost:${PORT}`;
+}
+
 // Start everything up
 const startServer = async () => {
   try {
     await connectDB();
     
+    const actualApiUrl = getApiUrl();
+    
     app.listen(PORT, () => {
       console.log(`🚀 Fashion Fit API running on port ${PORT}`);
       console.log(`📱 Frontend URL: ${process.env.FRONTEND_URL || 'http://localhost:3000'}`);
-      console.log(`🔗 API URL: http://localhost:${PORT}`);
+      console.log(`🔗 API URL: ${actualApiUrl}`);
       
       // Quick sanity checks
       if (!process.env.JWT_SECRET || process.env.JWT_SECRET.includes('your-super-secret')) {
@@ -134,6 +158,11 @@ const startServer = async () => {
       
       console.log(`🔐 Google OAuth: ${process.env.GOOGLE_CLIENT_ID ? 'Configured' : 'NOT CONFIGURED'}`);
       console.log(`💾 Database: MongoDB Connected`);
+      
+      // Show OAuth callback URL for debugging
+      if (process.env.GOOGLE_CLIENT_ID) {
+        console.log(`🔗 OAuth Callback URL: ${actualApiUrl}/api/auth/google/callback`);
+      }
     });
   } catch (err) {
     console.error('Failed to start server:', err);

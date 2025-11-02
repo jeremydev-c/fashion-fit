@@ -10,19 +10,25 @@ const resend = new Resend(process.env.RESEND_API_KEY);
 
 // Helper function to get API URL (supports Railway, Render, and local dev)
 function getApiUrl() {
+  // Check RENDER_EXTERNAL_URL first (Render automatically sets this)
   if (process.env.RENDER_EXTERNAL_URL) {
-    // Render provides this automatically
     return process.env.RENDER_EXTERNAL_URL;
-  } else if (process.env.RAILWAY_PUBLIC_DOMAIN) {
-    // Railway provides this
-    return `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`;
-  } else if (process.env.API_URL) {
-    // Manual configuration
-    return process.env.API_URL;
-  } else {
-    // Local development fallback
-    return `http://localhost:${process.env.PORT || 5000}`;
   }
+  // Check RAILWAY_PUBLIC_DOMAIN (Railway automatically sets this)
+  if (process.env.RAILWAY_PUBLIC_DOMAIN) {
+    return `https://${process.env.RAILWAY_PUBLIC_DOMAIN}`;
+  }
+  // Check manual API_URL configuration
+  if (process.env.API_URL) {
+    // Ensure it has protocol
+    let apiUrl = process.env.API_URL.trim();
+    if (!apiUrl.startsWith('http://') && !apiUrl.startsWith('https://')) {
+      apiUrl = `https://${apiUrl}`;
+    }
+    return apiUrl;
+  }
+  // Local development fallback
+  return `http://localhost:${process.env.PORT || 5000}`;
 }
 
 // Email functions
@@ -315,7 +321,11 @@ router.get('/google', (req, res, next) => {
 
 router.get('/google/callback', (req, res, next) => {
   console.log('Google OAuth callback received');
-  const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+  let frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+  // Ensure protocol is included
+  if (!frontendUrl.startsWith('http://') && !frontendUrl.startsWith('https://')) {
+    frontendUrl = `https://${frontendUrl}`;
+  }
   passport.authenticate('google', { 
     failureRedirect: `${frontendUrl}?error=auth_failed`,
     session: false 
@@ -334,11 +344,19 @@ router.get('/google/callback', (req, res, next) => {
     console.log('JWT token generated for user:', req.user.email);
     
     // Redirect directly to dashboard with token
-    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+    let frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+    // Ensure protocol is included
+    if (!frontendUrl.startsWith('http://') && !frontendUrl.startsWith('https://')) {
+      frontendUrl = `https://${frontendUrl}`;
+    }
     res.redirect(`${frontendUrl}/dashboard?token=${token}`);
   } catch (error) {
     console.error('Token generation error:', error);
-    const frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+    let frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+    // Ensure protocol is included
+    if (!frontendUrl.startsWith('http://') && !frontendUrl.startsWith('https://')) {
+      frontendUrl = `https://${frontendUrl}`;
+    }
     res.redirect(`${frontendUrl}?error=auth_failed`);
   }
 });
@@ -395,7 +413,12 @@ router.get('/demo-fallback', (req, res) => {
     { expiresIn: process.env.JWT_EXPIRE || '7d' }
   );
   
-  res.redirect(`${process.env.FRONTEND_URL || 'http://localhost:3000'}/dashboard?token=${demoToken}`);
+  let frontendUrl = process.env.FRONTEND_URL || 'http://localhost:3000';
+  // Ensure protocol is included
+  if (!frontendUrl.startsWith('http://') && !frontendUrl.startsWith('https://')) {
+    frontendUrl = `https://${frontendUrl}`;
+  }
+  res.redirect(`${frontendUrl}/dashboard?token=${demoToken}`);
 });
 
 // Exchange authorization code for token
